@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/xuese">
+
+    <EditText
+        android:id="@+id/et_activity_login_username"
+        style="@style/edit_text_common_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="手机号、昵称、邮箱"
+        android:selectAllOnFocus="true" />
+
+    <EditText
+        android:id="@+id/et_activity_login_pwd"
+        style="@style/edit_text_common_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_activity_login_username"
+        android:ems="10"
+        android:hint="密码"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true" />
+
+    <Button
+        android:id="@+id/btn_activity_login_login"
+        style="@style/btn_common_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登陆" />
+</RelativeLayout>
