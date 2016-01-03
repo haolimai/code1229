@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ShaiYing</string>
+    <string name="icon_haoyouquan">&#xf1db;</string>
+    <string name="icon_me">&#xf118;</string>
+    <string name="icon_nearby">&#xf041;</string>
+    <string name="icon_shaishai">&#xf185;</string>
+    <string name="icon_share">&#xf1d9;</string>
+    <string name="icon_shouye">&#xf094;</string>
 </resources>
