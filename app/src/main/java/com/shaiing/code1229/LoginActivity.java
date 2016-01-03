@@ -49,7 +49,9 @@ public class LoginActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                v.startAnimation(animation);
+                if (v.getVisibility() == View.VISIBLE) {
+                    v.startAnimation(animation);
+                }
             }
         });
     }

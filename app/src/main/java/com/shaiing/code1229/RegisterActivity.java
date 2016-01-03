@@ -70,9 +70,9 @@ public class RegisterActivity extends Activity {
 
     //初始化事件
     public void initEvents() {
-        et_activity_register_username.addTextChangedListener(new MyTextWatcher(et_activity_register_pwd, btn_activity_register_register,show,disappear));
+        et_activity_register_username.addTextChangedListener(new MyTextWatcher(et_activity_register_pwd, btn_activity_register_register, show, disappear));
 
-        et_activity_register_pwd.addTextChangedListener(new MyTextWatcher(et_activity_register_username, btn_activity_register_register,show,disappear));
+        et_activity_register_pwd.addTextChangedListener(new MyTextWatcher(et_activity_register_username, btn_activity_register_register, show, disappear));
 
         btn_activity_register_kacha.setOnClickListener(new View.OnClickListener() {
             private boolean flag;
@@ -90,21 +90,23 @@ public class RegisterActivity extends Activity {
                 }
             }
         });
-        
+
         btn_activity_register_register.setOnClickListener(new View.OnClickListener() {
-            private Animation animation = AnimationUtils.loadAnimation(RegisterActivity.this,R.anim.btn_alpha_0_point_5_to_1);
+            private Animation animation = AnimationUtils.loadAnimation(RegisterActivity.this, R.anim.btn_alpha_0_point_5_to_1);
+
             @Override
             public void onClick(View v) {
-                v.startAnimation(animation);
-                Toast.makeText(RegisterActivity.this, "注册了", Toast.LENGTH_SHORT).show();
+                if (v.getVisibility() == View.VISIBLE) {
+                    v.startAnimation(animation);
+                }
             }
         });
     }
 
     //初始化数据
     public void initData() {
-        show  = AnimationUtils.loadAnimation(this,R.anim.btn_alpha_0_to_1);
-        disappear = AnimationUtils.loadAnimation(this,R.anim.btn_alpha_1_to_0);
+        show = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_0_to_1);
+        disappear = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_1_to_0);
     }
 
 }
