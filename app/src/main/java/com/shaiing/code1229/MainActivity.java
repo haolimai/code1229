@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +43,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int ningmenghuang;
     private int baicaoshuang;
     private int huaqing;
+
+    private Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +103,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ningmenghuang = getResources().getColor(R.color.ningmenghuang);
         baicaoshuang = getResources().getColor(R.color.baicaoshuang);
         huaqing = getResources().getColor(R.color.huaqing);
+
+        animation = AnimationUtils.loadAnimation(this,R.anim.btn_alpha_0_point_5_to_1);
     }
 
     private void initEvents() {
@@ -107,6 +113,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ll_activity_main_haoyouquan.setOnClickListener(this);
         ll_activity_main_nearby.setOnClickListener(this);
         ll_activity_main_me.setOnClickListener(this);
+        tv_activity_main_icon_share.setOnClickListener(this);
     }
 
     @Override
@@ -115,35 +122,50 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.ll_activity_main_shouye: {
                 unselectTheseMenuItems();
                 icons.get(0).setTextColor(ningmenghuang);
+                icons.get(0).startAnimation(animation);
                 tvs.get(0).setTextColor(baicaoshuang);
+                tvs.get(0).startAnimation(animation);
                 break;
             }
 
             case R.id.ll_activity_main_shaishai: {
                 unselectTheseMenuItems();
                 icons.get(1).setTextColor(ningmenghuang);
+                icons.get(1).startAnimation(animation);
                 tvs.get(1).setTextColor(baicaoshuang);
+                tvs.get(1).startAnimation(animation);
                 break;
             }
 
             case R.id.ll_activity_main_haoyouquan: {
                 unselectTheseMenuItems();
                 icons.get(2).setTextColor(ningmenghuang);
+                icons.get(2).startAnimation(animation);
                 tvs.get(2).setTextColor(baicaoshuang);
+                tvs.get(2).startAnimation(animation);
                 break;
             }
 
             case R.id.ll_activity_main_nearby: {
                 unselectTheseMenuItems();
                 icons.get(3).setTextColor(ningmenghuang);
+                icons.get(3).startAnimation(animation);
                 tvs.get(3).setTextColor(baicaoshuang);
+                tvs.get(3).startAnimation(animation);
                 break;
             }
 
             case R.id.ll_activity_main_me: {
                 unselectTheseMenuItems();
                 icons.get(4).setTextColor(ningmenghuang);
+                icons.get(4).startAnimation(animation);
                 tvs.get(4).setTextColor(baicaoshuang);
+                tvs.get(4).startAnimation(animation);
+                break;
+            }
+
+            case R.id.tv_activity_main_icon_share : {
+                tv_activity_main_icon_share.startAnimation(animation);
                 break;
             }
         }
