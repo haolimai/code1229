@@ -151,14 +151,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
             if (i == skip) {
                 continue;
             }
-            menu_icons.get(i).setTextColor(getResources().getColor(R.color.zaohong));
+            menu_icons.get(i).setTextColor(getResources().getColor(R.color.xuese));
         }
 
         for (int i = 0, len = menu_tvs.size(); i < len; i++) {
             if (i == skip) {
                 continue;
             }
-            menu_tvs.get(i).setTextColor(getResources().getColor(R.color.zaohong));
+            menu_tvs.get(i).setTextColor(getResources().getColor(R.color.xuese));
         }
     }
 

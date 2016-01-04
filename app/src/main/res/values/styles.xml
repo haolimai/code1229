@@ -30,7 +30,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/zaohong</item>
+        <item name="android:textColor">@color/xuese</item>
         <item name="android:textSize">12sp</item>
     </style>
 
@@ -39,7 +39,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textSize">30sp</item>
-        <item name="android:textColor">@color/zaohong</item>
+        <item name="android:textColor">@color/xuese</item>
     </style>
 
 </resources>
