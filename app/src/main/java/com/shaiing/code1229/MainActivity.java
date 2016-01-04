@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,6 +28,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private int current = 0;
     private int prev = 0;
+
+    private Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         menu_icons = new ArrayList<>();
         menu_tvs = new ArrayList<>();
 
+        animation = AnimationUtils.loadAnimation(this,R.anim.btn_alpha_0_point_5_to_1);
     }
 
     private void initEvents() {
@@ -135,7 +140,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         if (current != prev) {
             menu_icons.get(current).setTextColor(getResources().getColor(R.color.ningmenghuang));
+            menu_icons.get(current).startAnimation(animation);
             menu_tvs.get(current).setTextColor(getResources().getColor(R.color.ningmenghuang));
+            menu_tvs.get(current).startAnimation(animation);
 
             menu_icons.get(prev).setTextColor(getResources().getColor(R.color.xuese));
             menu_tvs.get(prev).setTextColor(getResources().getColor(R.color.xuese));
