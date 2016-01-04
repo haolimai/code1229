@@ -4,33 +4,18 @@ import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    private TextView tv_activity_main_icon_haoyouquan;
-    private TextView tv_activity_main_icon_me;
-    private TextView tv_activity_main_icon_nearby;
-    private TextView tv_activity_main_icon_shaishai;
     private TextView tv_activity_main_icon_share;
-    private TextView tv_activity_main_icon_shouye;
-    private List<TextView> icons;
-
-    private TextView tv_activity_main_haoyouquan;
-    private TextView tv_activity_main_me;
-    private TextView tv_activity_main_nearby;
-    private TextView tv_activity_main_shaishai;
-    private TextView tv_activity_main_share;
-    private TextView tv_activity_main_shouye;
-    private List<TextView> tvs;
+    
+    private List<TextView> menu_icons;
+    private List<TextView> menu_tvs;
 
     private LinearLayout ll_activity_main_shouye;
     private LinearLayout ll_activity_main_shaishai;
@@ -40,12 +25,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private Typeface font;
 
-    private int ningmenghuang;
-    private int baicaoshuang;
-    private int huaqing;
-
-    private Animation animation;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,39 +33,49 @@ public class MainActivity extends Activity implements View.OnClickListener {
         initData();
         initViews();
         initEvents();
-
     }
 
     private void initViews() {
+        TextView tv_activity_main_icon_shouye;
+        TextView tv_activity_main_icon_shaishai;
+        TextView tv_activity_main_icon_haoyouquan;
+        TextView tv_activity_main_icon_nearby;
+        TextView tv_activity_main_icon_wo;
+
+        TextView tv_activity_main_haoyouquan;
+        TextView tv_activity_main_me;
+        TextView tv_activity_main_nearby;
+        TextView tv_activity_main_shaishai;
+        TextView tv_activity_main_shouye;
+
         tv_activity_main_icon_share = (TextView) findViewById(R.id.tv_activity_main_icon_share);
         tv_activity_main_icon_share.setTypeface(font);
-
         tv_activity_main_icon_shouye = (TextView) findViewById(R.id.tv_activity_main_icon_shouye);
         tv_activity_main_icon_shouye.setTypeface(font);
-        icons.add(tv_activity_main_icon_shouye);
+        menu_icons.add(tv_activity_main_icon_shouye);
         tv_activity_main_icon_shaishai = (TextView) findViewById(R.id.tv_activity_main_icon_shaishai);
         tv_activity_main_icon_shaishai.setTypeface(font);
-        icons.add(tv_activity_main_icon_shaishai);
+        menu_icons.add(tv_activity_main_icon_shaishai);
         tv_activity_main_icon_haoyouquan = (TextView) findViewById(R.id.tv_activity_main_icon_haoyouquan);
         tv_activity_main_icon_haoyouquan.setTypeface(font);
-        icons.add(tv_activity_main_icon_haoyouquan);
+        menu_icons.add(tv_activity_main_icon_haoyouquan);
         tv_activity_main_icon_nearby = (TextView) findViewById(R.id.tv_activity_main_icon_nearby);
         tv_activity_main_icon_nearby.setTypeface(font);
-        icons.add(tv_activity_main_icon_nearby);
-        tv_activity_main_icon_me = (TextView) findViewById(R.id.tv_activity_main_icon_me);
-        tv_activity_main_icon_me.setTypeface(font);
-        icons.add(tv_activity_main_icon_me);
+        menu_icons.add(tv_activity_main_icon_nearby);
+        tv_activity_main_icon_wo = (TextView) findViewById(R.id.tv_activity_main_icon_wo);
+        tv_activity_main_icon_wo.setTypeface(font);
+        menu_icons.add(tv_activity_main_icon_wo);
 
         tv_activity_main_shouye = (TextView) findViewById(R.id.tv_activity_main_shouye);
-        tvs.add(tv_activity_main_shouye);
+        menu_tvs.add(tv_activity_main_shouye);
         tv_activity_main_shaishai = (TextView) findViewById(R.id.tv_activity_main_shaishai);
-        tvs.add(tv_activity_main_shaishai);
+        menu_tvs.add(tv_activity_main_shaishai);
         tv_activity_main_haoyouquan = (TextView) findViewById(R.id.tv_activity_main_haoyouquan);
-        tvs.add(tv_activity_main_haoyouquan);
+        menu_tvs.add(tv_activity_main_haoyouquan);
         tv_activity_main_nearby = (TextView) findViewById(R.id.tv_activity_main_nearby);
-        tvs.add(tv_activity_main_nearby);
-        tv_activity_main_me = (TextView) findViewById(R.id.tv_activity_main_me);
-        tvs.add(tv_activity_main_me);
+        menu_tvs.add(tv_activity_main_nearby);
+        tv_activity_main_me = (TextView) findViewById(R.id.tv_activity_main_wo);
+        menu_tvs.add(tv_activity_main_me);
 
         ll_activity_main_shouye = (LinearLayout) findViewById(R.id.ll_activity_main_shouye);
         ll_activity_main_shaishai = (LinearLayout) findViewById(R.id.ll_activity_main_shaishai);
@@ -97,14 +86,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void initData() {
         font = Typeface.createFromAsset(getAssets(), "fontawesome-webfont.ttf");
-        icons = new ArrayList<>();
-        tvs = new ArrayList<>();
 
-        ningmenghuang = getResources().getColor(R.color.ningmenghuang);
-        baicaoshuang = getResources().getColor(R.color.baicaoshuang);
-        huaqing = getResources().getColor(R.color.huaqing);
+        menu_icons = new ArrayList<>();
+        menu_tvs = new ArrayList<>();
 
-        animation = AnimationUtils.loadAnimation(this,R.anim.btn_alpha_0_point_5_to_1);
     }
 
     private void initEvents() {
@@ -120,63 +105,60 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_activity_main_shouye: {
-                unselectTheseMenuItems();
-                icons.get(0).setTextColor(ningmenghuang);
-                icons.get(0).startAnimation(animation);
-                tvs.get(0).setTextColor(baicaoshuang);
-                tvs.get(0).startAnimation(animation);
+                unselectTheseMenuItems(0);
+                menu_icons.get(0).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                menu_tvs.get(0).setTextColor(getResources().getColor(R.color.ningmenghuang));
                 break;
             }
 
             case R.id.ll_activity_main_shaishai: {
-                unselectTheseMenuItems();
-                icons.get(1).setTextColor(ningmenghuang);
-                icons.get(1).startAnimation(animation);
-                tvs.get(1).setTextColor(baicaoshuang);
-                tvs.get(1).startAnimation(animation);
+                unselectTheseMenuItems(1);
+                menu_icons.get(1).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                menu_tvs.get(1).setTextColor(getResources().getColor(R.color.ningmenghuang));
                 break;
             }
 
             case R.id.ll_activity_main_haoyouquan: {
-                unselectTheseMenuItems();
-                icons.get(2).setTextColor(ningmenghuang);
-                icons.get(2).startAnimation(animation);
-                tvs.get(2).setTextColor(baicaoshuang);
-                tvs.get(2).startAnimation(animation);
+                unselectTheseMenuItems(2);
+                menu_icons.get(2).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                menu_tvs.get(2).setTextColor(getResources().getColor(R.color.ningmenghuang));
                 break;
             }
 
             case R.id.ll_activity_main_nearby: {
-                unselectTheseMenuItems();
-                icons.get(3).setTextColor(ningmenghuang);
-                icons.get(3).startAnimation(animation);
-                tvs.get(3).setTextColor(baicaoshuang);
-                tvs.get(3).startAnimation(animation);
+                unselectTheseMenuItems(3);
+                menu_icons.get(3).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                menu_tvs.get(3).setTextColor(getResources().getColor(R.color.ningmenghuang));
                 break;
             }
 
             case R.id.ll_activity_main_me: {
-                unselectTheseMenuItems();
-                icons.get(4).setTextColor(ningmenghuang);
-                icons.get(4).startAnimation(animation);
-                tvs.get(4).setTextColor(baicaoshuang);
-                tvs.get(4).startAnimation(animation);
+                unselectTheseMenuItems(4);
+                menu_icons.get(4).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                menu_tvs.get(4).setTextColor(getResources().getColor(R.color.ningmenghuang));
                 break;
             }
 
-            case R.id.tv_activity_main_icon_share : {
-                tv_activity_main_icon_share.startAnimation(animation);
+            case R.id.tv_activity_main_icon_share: {
+                Toast.makeText(MainActivity.this, "sssss", Toast.LENGTH_SHORT).show();
                 break;
             }
         }
     }
 
-    private void unselectTheseMenuItems() {
-        for (TextView tv : icons) {
-            tv.setTextColor(huaqing);
+    private void unselectTheseMenuItems(int skip) {
+        for (int i = 0, len = menu_icons.size(); i < len; i++) {
+            if (i == skip) {
+                continue;
+            }
+            menu_icons.get(i).setTextColor(getResources().getColor(R.color.zaohong));
         }
-        for (TextView tv : tvs) {
-            tv.setTextColor(huaqing);
+
+        for (int i = 0, len = menu_tvs.size(); i < len; i++) {
+            if (i == skip) {
+                continue;
+            }
+            menu_tvs.get(i).setTextColor(getResources().getColor(R.color.zaohong));
         }
     }
 

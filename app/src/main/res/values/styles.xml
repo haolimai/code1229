@@ -26,4 +26,20 @@
         <item name="android:visibility">invisible</item>
     </style>
 
+    <style name="init_unselected_menu_tvs">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/zaohong</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="init_unselected_menu_icon_tvs">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/zaohong</item>
+    </style>
+
 </resources>

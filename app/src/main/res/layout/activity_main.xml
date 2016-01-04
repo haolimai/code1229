@@ -12,8 +12,8 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="@string/icon_share"
-        android:textColor="@color/ningmenghuang"
-        android:textSize="40sp" />
+        android:textColor="@color/tianqing"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:id="@+id/ll_activity_main_menu"
@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/border_top_ningmenghuang"
+        android:baselineAligned="false"
         android:paddingTop="5dp">
 
         <LinearLayout
@@ -51,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="首页"
-                android:textColor="@color/baicaoshuang"
+                android:textColor="@color/ningmenghuang"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -69,22 +70,14 @@
 
                 <TextView
                     android:id="@+id/tv_activity_main_icon_shaishai"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/icon_shaishai"
-                    android:textColor="@color/huaqing"
-                    android:textSize="30sp" />
+                    style="@style/init_unselected_menu_icon_tvs"
+                    android:text="@string/icon_shaishai" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_activity_main_shaishai"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="晒晒"
-                android:textColor="@color/huaqing"
-                android:textSize="12sp" />
+                style="@style/init_unselected_menu_tvs"
+                android:text="晒晒" />
         </LinearLayout>
 
         <LinearLayout
@@ -100,22 +93,14 @@
 
                 <TextView
                     android:id="@+id/tv_activity_main_icon_haoyouquan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/icon_haoyouquan"
-                    android:textColor="@color/huaqing"
-                    android:textSize="30sp" />
+                    style="@style/init_unselected_menu_icon_tvs"
+                    android:text="@string/icon_haoyouquan" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_activity_main_haoyouquan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="好友圈"
-                android:textColor="@color/huaqing"
-                android:textSize="12sp" />
+                style="@style/init_unselected_menu_tvs"
+                android:text="好友圈" />
         </LinearLayout>
 
         <LinearLayout
@@ -131,22 +116,14 @@
 
                 <TextView
                     android:id="@+id/tv_activity_main_icon_nearby"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/icon_nearby"
-                    android:textColor="@color/huaqing"
-                    android:textSize="30sp" />
+                    style="@style/init_unselected_menu_icon_tvs"
+                    android:text="@string/icon_nearby" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_activity_main_nearby"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="nearby"
-                android:textColor="@color/huaqing"
-                android:textSize="12sp" />
+                style="@style/init_unselected_menu_tvs"
+                android:text="nearby" />
         </LinearLayout>
 
         <LinearLayout
@@ -161,23 +138,16 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_activity_main_icon_me"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/icon_me"
-                    android:textColor="@color/huaqing"
-                    android:textSize="30sp" />
+                    android:id="@+id/tv_activity_main_icon_wo"
+                    style="@style/init_unselected_menu_icon_tvs"
+                    android:text="@string/icon_me" />
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_activity_main_me"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/tv_activity_main_wo"
+                style="@style/init_unselected_menu_tvs"
                 android:gravity="center"
-                android:text="我"
-                android:textColor="@color/huaqing"
-                android:textSize="12sp" />
+                android:text="我" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
