@@ -6,14 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private TextView tv_activity_main_icon_share;
-    
+
     private List<TextView> menu_icons;
     private List<TextView> menu_tvs;
 
@@ -24,6 +23,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private LinearLayout ll_activity_main_me;
 
     private Typeface font;
+
+    private int current = 0;
+    private int prev = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,62 +107,40 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_activity_main_shouye: {
-                unselectTheseMenuItems(0);
-                menu_icons.get(0).setTextColor(getResources().getColor(R.color.ningmenghuang));
-                menu_tvs.get(0).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                current = 0;
                 break;
             }
 
             case R.id.ll_activity_main_shaishai: {
-                unselectTheseMenuItems(1);
-                menu_icons.get(1).setTextColor(getResources().getColor(R.color.ningmenghuang));
-                menu_tvs.get(1).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                current = 1;
                 break;
             }
 
             case R.id.ll_activity_main_haoyouquan: {
-                unselectTheseMenuItems(2);
-                menu_icons.get(2).setTextColor(getResources().getColor(R.color.ningmenghuang));
-                menu_tvs.get(2).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                current = 2;
                 break;
             }
 
             case R.id.ll_activity_main_nearby: {
-                unselectTheseMenuItems(3);
-                menu_icons.get(3).setTextColor(getResources().getColor(R.color.ningmenghuang));
-                menu_tvs.get(3).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                current = 3;
                 break;
             }
 
             case R.id.ll_activity_main_me: {
-                unselectTheseMenuItems(4);
-                menu_icons.get(4).setTextColor(getResources().getColor(R.color.ningmenghuang));
-                menu_tvs.get(4).setTextColor(getResources().getColor(R.color.ningmenghuang));
+                current = 4;
                 break;
             }
 
-            case R.id.tv_activity_main_icon_share: {
-                Toast.makeText(MainActivity.this, "sssss", Toast.LENGTH_SHORT).show();
-                break;
-            }
+        }
+
+        if (current != prev) {
+            menu_icons.get(current).setTextColor(getResources().getColor(R.color.ningmenghuang));
+            menu_tvs.get(current).setTextColor(getResources().getColor(R.color.ningmenghuang));
+
+            menu_icons.get(prev).setTextColor(getResources().getColor(R.color.xuese));
+            menu_tvs.get(prev).setTextColor(getResources().getColor(R.color.xuese));
+            prev = current;
         }
     }
-
-    private void unselectTheseMenuItems(int skip) {
-        for (int i = 0, len = menu_icons.size(); i < len; i++) {
-            if (i == skip) {
-                continue;
-            }
-            menu_icons.get(i).setTextColor(getResources().getColor(R.color.xuese));
-        }
-
-        for (int i = 0, len = menu_tvs.size(); i < len; i++) {
-            if (i == skip) {
-                continue;
-            }
-            menu_tvs.get(i).setTextColor(getResources().getColor(R.color.xuese));
-        }
-    }
-
 
 }
