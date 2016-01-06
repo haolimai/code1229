@@ -9,13 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.shaiing.code1229.R;
 import com.shaiing.code1229.fragment.HaoYouQuanFragment;
 import com.shaiing.code1229.fragment.NearbyFragment;
 import com.shaiing.code1229.fragment.ShaiShaiFragment;
-import com.shaiing.code1229.fragment.ShouYeFragment;
 import com.shaiing.code1229.fragment.WoFragment;
 
 import java.util.ArrayList;
