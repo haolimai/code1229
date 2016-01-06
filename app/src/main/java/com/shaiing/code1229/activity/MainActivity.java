@@ -1,13 +1,22 @@
-package com.shaiing.code1229;
+package com.shaiing.code1229.activity;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.shaiing.code1229.R;
+import com.shaiing.code1229.fragment.HaoYouQuanFragment;
+import com.shaiing.code1229.fragment.NearbyFragment;
+import com.shaiing.code1229.fragment.ShaiShaiFragment;
+import com.shaiing.code1229.fragment.ShouYeFragment;
+import com.shaiing.code1229.fragment.WoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +35,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private Typeface font;
 
-    private int current = 0;
-    private int prev = 0;
+    private byte current = 0;
+    private byte prev = 0;
 
-    private Animation animation;
+    private Fragment[] fragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +97,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ll_activity_main_haoyouquan = (LinearLayout) findViewById(R.id.ll_activity_main_haoyouquan);
         ll_activity_main_nearby = (LinearLayout) findViewById(R.id.ll_activity_main_nearby);
         ll_activity_main_me = (LinearLayout) findViewById(R.id.ll_activity_main_me);
+
     }
 
     private void initData() {
@@ -96,7 +106,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         menu_icons = new ArrayList<>();
         menu_tvs = new ArrayList<>();
 
-        animation = AnimationUtils.loadAnimation(this,R.anim.btn_alpha_0_point_5_to_1);
+        fragments = new Fragment[5];
+        FragmentManager fragmentManager = getFragmentManager();
+        fragments[0] = fragmentManager.findFragmentById(R.id.shou_ye_fragment);
+
     }
 
     private void initEvents() {
@@ -140,14 +153,66 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         if (current != prev) {
             menu_icons.get(current).setTextColor(getResources().getColor(R.color.ningmenghuang));
-            menu_icons.get(current).startAnimation(animation);
             menu_tvs.get(current).setTextColor(getResources().getColor(R.color.ningmenghuang));
-            menu_tvs.get(current).startAnimation(animation);
 
             menu_icons.get(prev).setTextColor(getResources().getColor(R.color.xuese));
             menu_tvs.get(prev).setTextColor(getResources().getColor(R.color.xuese));
+
+            //更新fragment
+            switch (current) {
+                case 0: {
+                    switchFragment(prev,current);
+                    break;
+                }
+                case 1: {
+                    switchFragment(prev,current);
+                    break;
+                }
+                case 2: {
+                    switchFragment(prev,current);
+                    break;
+                }
+                case 3: {
+                    switchFragment(prev,current);
+                    break;
+                }
+                case 4: {
+                    switchFragment(prev,current);
+                    break;
+                }
+            }
             prev = current;
         }
+    }
+
+    private void switchFragment(byte prev, byte current) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.hide(fragments[prev]);
+        if (fragments[current] == null) {
+            switch (current) {
+                case 1: {
+                    fragments[current] = new ShaiShaiFragment();
+                    break;
+                }
+                case 2: {
+                    fragments[current] = new HaoYouQuanFragment();
+                    break;
+                }
+                case 3: {
+                    fragments[current] = new NearbyFragment();
+                    break;
+                }
+                case 4: {
+                    fragments[current] = new WoFragment();
+                    break;
+                }
+            }
+            fragmentTransaction.add(R.id.fragment_container, fragments[current]);
+        } else {
+            fragmentTransaction.show(fragments[current]);
+        }
+        fragmentTransaction.commit();
     }
 
 }

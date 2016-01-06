@@ -1,4 +1,4 @@
-package com.shaiing.code1229;
+package com.shaiing.code1229.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.shaiing.code1229.MyTextWatcher;
+import com.shaiing.code1229.R;
 
 /**
  * Created by natalie on 2015/12/30.

@@ -3,6 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_activity_main_menu"
+        android:background="@color/ningmenghuang"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/shou_ye_fragment"
+            android:name="com.shaiing.code1229.fragment.ShouYeFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/tv_activity_main_icon_share"
         android:layout_width="wrap_content"

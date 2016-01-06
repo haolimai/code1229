@@ -1,4 +1,4 @@
-package com.shaiing.code1229;
+package com.shaiing.code1229.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,6 +11,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+
+import com.shaiing.code1229.MyTextWatcher;
+import com.shaiing.code1229.R;
 
 /**
  * Created by natalie on 2015/12/29.

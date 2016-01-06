@@ -9,15 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:windowSoftInputMode="adjustResize"></activity>
-        <activity android:name=".WelcomeActivity">
+        <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

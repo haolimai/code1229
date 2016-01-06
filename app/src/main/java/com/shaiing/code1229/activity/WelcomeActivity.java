@@ -1,4 +1,4 @@
-package com.shaiing.code1229;
+package com.shaiing.code1229.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.shaiing.code1229.R;
+import com.shaiing.code1229.activity.LoginActivity;
+import com.shaiing.code1229.activity.MainActivity;
+import com.shaiing.code1229.activity.RegisterActivity;
 
 /**
  * Created by natalie on 2015/12/30.
