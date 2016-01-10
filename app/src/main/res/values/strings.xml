@@ -6,7 +6,15 @@
     <string name="icon_shaishai">&#xf185;</string>
     <string name="icon_share">&#xf1d9;</string>
     <string name="icon_shouye">&#xf094;</string>
+    <string name="icon_close">&#xf00d;</string>
+    <string name="icon_text">&#xf040;</string>
+    <string name="icon_photo">&#xf03e;</string>
+    <string name="icon_voice">&#xf130;</string>
+    <string name="icon_video">&#xf03d;</string>
+    <string name="icon_article">&#xf24a;</string>
+    <string name="icon_more">&#xf141;</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_share">ShareActivity</string>
 </resources>

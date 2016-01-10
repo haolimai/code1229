@@ -23,10 +23,10 @@
         <item name="android:background">@color/ningmenghuang</item>
         <item name="android:textColor">@color/xuese</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:visibility">invisible</item>
+        <item name="android:alpha">0</item>
     </style>
 
-    <style name="init_unselected_menu_tvs">
+    <style name="unselected_menu_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
@@ -34,12 +34,21 @@
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="init_unselected_menu_icon_tvs">
+    <style name="unselected_menu_icon">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/xuese</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

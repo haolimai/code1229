@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,37 +15,26 @@
             android:id="@+id/shou_ye_fragment"
             android:name="com.shaiing.code1229.fragment.ShouYeFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_shou_ye" />
     </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/tv_activity_main_icon_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ll_activity_main_menu"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
-        android:gravity="center"
-        android:text="@string/icon_share"
-        android:textColor="@color/tianqing"
-        android:textSize="30sp" />
 
     <LinearLayout
         android:id="@+id/ll_activity_main_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/tv_activity_main_icon_share"
         android:background="@color/tianqing"
-        android:baselineAligned="false"
-        android:paddingTop="5dp">
+        android:baselineAligned="false">
 
         <LinearLayout
             android:id="@+id/ll_activity_main_shouye"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            android:paddingTop="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -55,7 +45,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:gravity="center"
                     android:text="@string/icon_shouye"
                     android:textColor="#e9db39"
                     android:textSize="30sp" />
@@ -74,10 +63,12 @@
 
         <LinearLayout
             android:id="@+id/ll_activity_main_shaishai"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            android:paddingTop="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -85,22 +76,24 @@
 
                 <TextView
                     android:id="@+id/tv_activity_main_icon_shaishai"
-                    style="@style/init_unselected_menu_icon_tvs"
+                    style="@style/unselected_menu_icon"
                     android:text="@string/icon_shaishai" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_activity_main_shaishai"
-                style="@style/init_unselected_menu_tvs"
+                style="@style/unselected_menu_text"
                 android:text="晒晒" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_activity_main_haoyouquan"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            android:paddingTop="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -108,22 +101,24 @@
 
                 <TextView
                     android:id="@+id/tv_activity_main_icon_haoyouquan"
-                    style="@style/init_unselected_menu_icon_tvs"
+                    style="@style/unselected_menu_icon"
                     android:text="@string/icon_haoyouquan" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_activity_main_haoyouquan"
-                style="@style/init_unselected_menu_tvs"
+                style="@style/unselected_menu_text"
                 android:text="好友圈" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_activity_main_nearby"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            android:paddingTop="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -131,22 +126,24 @@
 
                 <TextView
                     android:id="@+id/tv_activity_main_icon_nearby"
-                    style="@style/init_unselected_menu_icon_tvs"
+                    style="@style/unselected_menu_icon"
                     android:text="@string/icon_nearby" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_activity_main_nearby"
-                style="@style/init_unselected_menu_tvs"
+                style="@style/unselected_menu_text"
                 android:text="nearby" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_activity_main_me"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="2dp"
+            android:paddingTop="5dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -154,15 +151,26 @@
 
                 <TextView
                     android:id="@+id/tv_activity_main_icon_wo"
-                    style="@style/init_unselected_menu_icon_tvs"
+                    style="@style/unselected_menu_icon"
                     android:text="@string/icon_me" />
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_activity_main_wo"
-                style="@style/init_unselected_menu_tvs"
-                android:gravity="center"
+                style="@style/unselected_menu_text"
                 android:text="我" />
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_activity_main_icon_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/ningmenghuang"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/icon_share"
+        android:textColor="@color/tianqing"
+        android:textSize="30sp" />
 </RelativeLayout>

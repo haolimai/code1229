@@ -1,11 +1,14 @@
 package com.shaiing.code1229.activity;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -49,6 +52,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initViews() {
+        tv_activity_main_icon_share = (TextView) findViewById(R.id.tv_activity_main_icon_share);
+
         TextView tv_activity_main_icon_shouye;
         TextView tv_activity_main_icon_shaishai;
         TextView tv_activity_main_icon_haoyouquan;
@@ -117,6 +122,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ll_activity_main_nearby.setOnClickListener(this);
         ll_activity_main_me.setOnClickListener(this);
         tv_activity_main_icon_share.setOnClickListener(this);
+
+        tv_activity_main_icon_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ShareActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.alpha_0_to_1, R.anim.alpha_1_to_0);
+            }
+        });
     }
 
     @Override
@@ -151,7 +165,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         if (current != prev) {
             menu_icons.get(current).setTextColor(getResources().getColor(R.color.ningmenghuang));
+            ObjectAnimator.ofFloat(menu_icons.get(current), "Alpha", 0.5f, 1.0f).setDuration(500).start();
             menu_tvs.get(current).setTextColor(getResources().getColor(R.color.ningmenghuang));
+            ObjectAnimator.ofFloat(menu_tvs.get(current), "Alpha", 0.5f, 1.0f).setDuration(500).start();
 
             menu_icons.get(prev).setTextColor(getResources().getColor(R.color.xuese));
             menu_tvs.get(prev).setTextColor(getResources().getColor(R.color.xuese));
@@ -159,23 +175,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
             //更新fragment
             switch (current) {
                 case 0: {
-                    switchFragment(prev,current);
+                    switchFragment(prev, current);
                     break;
                 }
                 case 1: {
-                    switchFragment(prev,current);
+                    switchFragment(prev, current);
                     break;
                 }
                 case 2: {
-                    switchFragment(prev,current);
+                    switchFragment(prev, current);
                     break;
                 }
                 case 3: {
-                    switchFragment(prev,current);
+                    switchFragment(prev, current);
                     break;
                 }
                 case 4: {
-                    switchFragment(prev,current);
+                    switchFragment(prev, current);
                     break;
                 }
             }

@@ -1,7 +1,10 @@
 package com.shaiing.code1229.activity;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,8 +22,7 @@ public class LoginActivity extends Activity {
     private EditText et_activity_login_pwd;
     private Button btn_activity_login_login;
 
-    private Animation show;
-    private Animation disappear;
+    private boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,23 +42,75 @@ public class LoginActivity extends Activity {
     }
 
     public void initEvents() {
-        et_activity_login_username.addTextChangedListener(new MyTextWatcher(et_activity_login_pwd, btn_activity_login_login, show, disappear));
-        et_activity_login_pwd.addTextChangedListener(new MyTextWatcher(et_activity_login_username, btn_activity_login_login, show, disappear));
-        btn_activity_login_login.setOnClickListener(new View.OnClickListener() {
-            private Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.btn_alpha_0_point_5_to_1);
+        et_activity_login_username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
 
             @Override
-            public void onClick(View v) {
-                if (v.getVisibility() == View.VISIBLE) {
-                    v.startAnimation(animation);
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String username = s.toString().trim();
+                String pwd = et_activity_login_pwd.getText().toString().trim();
+
+                if (username.equals("") || pwd.equals("")) {
+                    if (flag) {
+                        ObjectAnimator.ofFloat(btn_activity_login_login, "Alpha", 1.0f, 0.0f).setDuration(500).start();
+                        flag = false;
+                    }
+                } else if (!username.equals("") && !pwd.equals("")) {
+                    if (!flag) {
+                        ObjectAnimator.ofFloat(btn_activity_login_login, "Alpha", 0.0f, 1.0f).setDuration(500).start();
+                        flag = true;
+                    }
                 }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        et_activity_login_pwd.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String username = s.toString().trim();
+                String pwd = et_activity_login_username.getText().toString().trim();
+
+                if (username.equals("") || pwd.equals("")) {
+                    if (flag) {
+                        ObjectAnimator.ofFloat(btn_activity_login_login, "Alpha", 1.0f, 0.0f).setDuration(500).start();
+                        flag = false;
+                    }
+                } else if (!username.equals("") && !pwd.equals("")) {
+                    if (!flag) {
+                        ObjectAnimator.ofFloat(btn_activity_login_login, "Alpha", 0.0f, 1.0f).setDuration(500).start();
+                        flag = true;
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        btn_activity_login_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
 
     public void initData() {
-        show = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_0_to_1);
-        disappear = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_1_to_0);
     }
 
 }

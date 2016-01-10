@@ -1,8 +1,11 @@
 package com.shaiing.code1229.activity;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
@@ -21,44 +24,24 @@ import com.shaiing.code1229.R;
 public class RegisterActivity extends Activity {
     private EditText et_activity_register_username;
     private EditText et_activity_register_pwd;
+
     private Button btn_activity_register_kacha;
     private Button btn_activity_register_register;
+
     private RelativeLayout rl_activity_register_root;
 
-    private Animation show;
-    private Animation disappear;
+    private boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        initViews();
         initData();
+        initViews();
         initEvents();
-
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-
-        rl_activity_register_root.getViewTreeObserver().addOnGlobalLayoutListener(
-                new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        int heightDiff = rl_activity_register_root.getRootView().getHeight() - rl_activity_register_root.getHeight();
-
-                        if (heightDiff > 100) {
-//                            Log.v("TAG", "键盘弹出状态");
-                            btn_activity_register_kacha.setVisibility(View.INVISIBLE);
-                        } else {
-//                            Log.v("TAG", "键盘收起状态");
-                            btn_activity_register_kacha.setVisibility(View.VISIBLE);
-                        }
-                    }
-                });
-
     }
 
-    //初始化控件
     public void initViews() {
         et_activity_register_username = (EditText) findViewById(R.id.et_activity_register_username);
         et_activity_register_pwd = (EditText) findViewById(R.id.et_activity_register_pwd);
@@ -67,11 +50,66 @@ public class RegisterActivity extends Activity {
         rl_activity_register_root = (RelativeLayout) findViewById(R.id.rl_activity_register_root);
     }
 
-    //初始化事件
     public void initEvents() {
-        et_activity_register_username.addTextChangedListener(new MyTextWatcher(et_activity_register_pwd, btn_activity_register_register, show, disappear));
+        et_activity_register_username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        et_activity_register_pwd.addTextChangedListener(new MyTextWatcher(et_activity_register_username, btn_activity_register_register, show, disappear));
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String username = s.toString().trim();
+                String pwd = et_activity_register_pwd.getText().toString().trim();
+
+                if (username.equals("") || pwd.equals("")) {
+                    if (flag) {
+                        ObjectAnimator.ofFloat(btn_activity_register_register, "Alpha", 1.0f, 0.0f).setDuration(500).start();
+                        flag = false;
+                    }
+                } else if (!username.equals("") && !pwd.equals("")) {
+                    if (!flag) {
+                        ObjectAnimator.ofFloat(btn_activity_register_register, "Alpha", 0.0f, 1.0f).setDuration(500).start();
+                        flag = true;
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        et_activity_register_pwd.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String username = s.toString().trim();
+                String pwd = et_activity_register_username.getText().toString().trim();
+
+                if (username.equals("") || pwd.equals("")) {
+                    if (flag) {
+                        ObjectAnimator.ofFloat(btn_activity_register_register, "Alpha", 1.0f, 0.0f).setDuration(500).start();
+                        flag = false;
+                    }
+                } else if (!username.equals("") && !pwd.equals("")) {
+                    if (!flag) {
+                        ObjectAnimator.ofFloat(btn_activity_register_register, "Alpha", 0.0f, 1.0f).setDuration(500).start();
+                        flag = true;
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         btn_activity_register_kacha.setOnClickListener(new View.OnClickListener() {
             private boolean flag;
@@ -91,21 +129,31 @@ public class RegisterActivity extends Activity {
         });
 
         btn_activity_register_register.setOnClickListener(new View.OnClickListener() {
-            private Animation animation = AnimationUtils.loadAnimation(RegisterActivity.this, R.anim.btn_alpha_0_point_5_to_1);
-
             @Override
             public void onClick(View v) {
-                if (v.getVisibility() == View.VISIBLE) {
-                    v.startAnimation(animation);
-                }
+
             }
         });
+
+        rl_activity_register_root.getViewTreeObserver().addOnGlobalLayoutListener(
+                new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        int heightDiff = rl_activity_register_root.getRootView().getHeight() - rl_activity_register_root.getHeight();
+                        if (heightDiff > 100) {
+                            //键盘弹出状态
+                            btn_activity_register_kacha.setVisibility(View.INVISIBLE);
+                        } else {
+                            //键盘未弹出状态
+                            btn_activity_register_kacha.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
     }
 
-    //初始化数据
     public void initData() {
-        show = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_0_to_1);
-        disappear = AnimationUtils.loadAnimation(this, R.anim.btn_alpha_1_to_0);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
 }
