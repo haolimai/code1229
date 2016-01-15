@@ -26,18 +26,10 @@
         <item name="android:alpha">0</item>
     </style>
 
-    <style name="unselected_menu_text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/xuese</item>
-        <item name="android:textSize">12sp</item>
-    </style>
-
-    <style name="unselected_menu_icon">
+    <style name="nav_bar_ic_common_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerInParent">true</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/xuese</item>
     </style>

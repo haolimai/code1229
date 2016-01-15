@@ -4,32 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/tianqing"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="新鲜事儿"
-            android:textColor="@color/xuese"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/qianlan"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="消息"
-            android:textColor="@color/xuese"
-            android:textStyle="bold" />
-    </LinearLayout>
+    <include layout="@layout/include_diy_pager_tab_strip" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"

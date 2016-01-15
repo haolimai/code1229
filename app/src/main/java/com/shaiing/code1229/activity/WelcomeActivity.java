@@ -13,32 +13,32 @@ import com.shaiing.code1229.R;
  * Created by natalie on 2015/12/30.
  */
 public class WelcomeActivity extends Activity implements View.OnClickListener {
-    private Button btn_activity_welcome_login;
-    private Button btn_activity_welcome_register;
+    private Button btn_login;
+    private Button btn_register;
 
-    private TextView tv_activity_welcome_explore;
+    private TextView tv_explore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        initViews();
-        initEvents();
+        initView();
+        initEvent();
         initData();
 
     }
 
-    public void initViews() {
-        btn_activity_welcome_login = (Button) findViewById(R.id.btn_activity_welcome_login);
-        btn_activity_welcome_register = (Button) findViewById(R.id.btn_activity_welcome_register);
-        tv_activity_welcome_explore = (TextView) findViewById(R.id.tv_activity_welcome_explore);
+    public void initView() {
+        btn_login = (Button) findViewById(R.id.btn_login);
+        btn_register = (Button) findViewById(R.id.btn_register);
+        tv_explore = (TextView) findViewById(R.id.tv_explore);
     }
 
-    public void initEvents() {
-        btn_activity_welcome_login.setOnClickListener(this);
-        btn_activity_welcome_register.setOnClickListener(this);
-        tv_activity_welcome_explore.setOnClickListener(this);
+    public void initEvent() {
+        btn_login.setOnClickListener(this);
+        btn_register.setOnClickListener(this);
+        tv_explore.setOnClickListener(this);
     }
 
     public void initData() {
@@ -48,20 +48,20 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_activity_welcome_login: {
+            case R.id.btn_login: {
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 break;
             }
 
-            case R.id.btn_activity_welcome_register: {
+            case R.id.btn_register: {
                 Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
                 break;
             }
 
-            case R.id.tv_activity_welcome_explore: {
-                Intent intent = new Intent(this,MainActivity.class);
+            case R.id.tv_explore: {
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
             }

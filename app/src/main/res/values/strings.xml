@@ -4,7 +4,7 @@
     <string name="icon_me">&#xf118;</string>
     <string name="icon_nearby">&#xf041;</string>
     <string name="icon_shaishai">&#xf185;</string>
-    <string name="icon_share">&#xf1d9;</string>
+    <string name="icon_share">&#xf067;</string>
     <string name="icon_shouye">&#xf094;</string>
     <string name="icon_close">&#xf00d;</string>
     <string name="icon_text">&#xf040;</string>
@@ -17,4 +17,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_share">ShareActivity</string>
+    <string name="wo">我</string>
+    <string name="nearby">nearby</string>
+    <string name="haoyouquan">好友圈</string>
+    <string name="shaishai">晒晒</string>
+    <string name="shouye">首页</string>
 </resources>

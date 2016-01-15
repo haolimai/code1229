@@ -6,40 +6,91 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/tianqing"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/qianlan"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="附近的人"
-            android:textColor="@color/xuese"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:id="@+id/text_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="附近的人"
+                android:textColor="@color/xuese"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/border_bottom_left"
+                android:layout_width="wrap_content"
+                android:layout_height="3dp"
+                android:layout_below="@+id/text_left"
+                android:alpha="0"
+                android:background="@color/ningmenghuang" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/tianqing"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="附近的事"
-            android:textColor="@color/xuese"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:id="@+id/text_middle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="附近的事"
+                android:textColor="@color/ningmenghuang"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/border_bottom_middle"
+                android:layout_width="wrap_content"
+                android:layout_height="3dp"
+                android:layout_below="@+id/text_middle"
+                android:background="@color/ningmenghuang" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/qianlan"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="发现"
-            android:textColor="@color/xuese"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="发现"
+                android:textColor="@color/xuese"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/border_bottom_right"
+                android:layout_width="wrap_content"
+                android:layout_height="3dp"
+                android:layout_below="@+id/text_right"
+                android:alpha="0"
+                android:background="@color/ningmenghuang" />
+
+        </RelativeLayout>
+
     </LinearLayout>
 
     <android.support.v4.view.ViewPager

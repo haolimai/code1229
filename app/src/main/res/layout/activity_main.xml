@@ -1,176 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/fragment_container"
+    <FrameLayout
+        android:id="@+id/fl_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/ll_activity_main_menu"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <fragment
-            android:id="@+id/shou_ye_fragment"
-            android:name="com.shaiing.code1229.fragment.ShouYeFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/fragment_shou_ye" />
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/ll_activity_main_menu"
+        android:id="@+id/ll_nav_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_activity_main_icon_share"
         android:background="@color/tianqing"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:paddingTop="3dp">
 
         <LinearLayout
-            android:id="@+id/ll_activity_main_shouye"
+            android:id="@+id/ll_shouye"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingBottom="2dp"
-            android:paddingTop="5dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_activity_main_icon_shouye"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/icon_shouye"
-                    android:textColor="#e9db39"
-                    android:textSize="30sp" />
+                    android:id="@+id/tv_ic_shouye"
+                    style="@style/nav_bar_ic_common_style"
+                    android:text="@string/icon_shouye" />
+
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_activity_main_shouye"
-                android:layout_width="match_parent"
+                android:id="@+id/tv_shouye"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="首页"
-                android:textColor="@color/ningmenghuang"
+                android:text="@string/shouye"
+                android:textColor="@color/xuese"
                 android:textSize="12sp" />
+
         </LinearLayout>
 
-
         <LinearLayout
-            android:id="@+id/ll_activity_main_shaishai"
+            android:id="@+id/ll_shaishai"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingBottom="2dp"
-            android:paddingTop="5dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_activity_main_icon_shaishai"
-                    style="@style/unselected_menu_icon"
+                    android:id="@+id/tv_ic_shaishai"
+                    style="@style/nav_bar_ic_common_style"
                     android:text="@string/icon_shaishai" />
+
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_activity_main_shaishai"
-                style="@style/unselected_menu_text"
-                android:text="晒晒" />
+                android:id="@+id/tv_shaishai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shaishai"
+                android:textColor="@color/xuese"
+                android:textSize="12sp" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_activity_main_haoyouquan"
+            android:id="@+id/ll_haoyouquan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingBottom="2dp"
-            android:paddingTop="5dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_activity_main_icon_haoyouquan"
-                    style="@style/unselected_menu_icon"
+                    android:id="@+id/tv_ic_haoyouquan"
+                    style="@style/nav_bar_ic_common_style"
                     android:text="@string/icon_haoyouquan" />
+
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_activity_main_haoyouquan"
-                style="@style/unselected_menu_text"
-                android:text="好友圈" />
+                android:id="@+id/tv_haoyouquan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/haoyouquan"
+                android:textColor="@color/xuese"
+                android:textSize="12sp" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_activity_main_nearby"
+            android:id="@+id/ll_nearby"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingBottom="2dp"
-            android:paddingTop="5dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_activity_main_icon_nearby"
-                    style="@style/unselected_menu_icon"
+                    android:id="@+id/tv_ic_nearby"
+                    style="@style/nav_bar_ic_common_style"
                     android:text="@string/icon_nearby" />
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_activity_main_nearby"
-                style="@style/unselected_menu_text"
-                android:text="nearby" />
+                android:id="@+id/tv_nearby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="附近的"
+                android:textColor="@color/xuese"
+                android:textSize="12sp" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_activity_main_me"
+            android:id="@+id/ll_wo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingBottom="2dp"
-            android:paddingTop="5dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_activity_main_icon_wo"
-                    style="@style/unselected_menu_icon"
+                    android:id="@+id/tv_ic_wo"
+                    style="@style/nav_bar_ic_common_style"
                     android:text="@string/icon_me" />
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_activity_main_wo"
-                style="@style/unselected_menu_text"
-                android:text="我" />
+                android:id="@+id/tv_wo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我"
+                android:textColor="@color/xuese"
+                android:textSize="12sp" />
+
         </LinearLayout>
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_activity_main_icon_share"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@color/ningmenghuang"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="@string/icon_share"
-        android:textColor="@color/tianqing"
-        android:textSize="30sp" />
-</RelativeLayout>
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_ic_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:text="@string/icon_share"
+            android:textColor="@color/xuese"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</LinearLayout>
