@@ -7,41 +7,39 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.shaiing.code1229.R;
 import com.shaiing.code1229.fragment.HaoYouQuanFragment;
+import com.shaiing.code1229.fragment.HomePageFragment;
 import com.shaiing.code1229.fragment.NearbyFragment;
-import com.shaiing.code1229.fragment.ShaiShaiFragment;
-import com.shaiing.code1229.fragment.ShouYeFragment;
 import com.shaiing.code1229.fragment.WoFragment;
-
-import org.w3c.dom.Text;
+import com.shaiing.code1229.fragment.hashtagFragment;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    private LinearLayout ll_shouye;
-    private LinearLayout ll_shaishai;
-    private LinearLayout ll_haoyouquan;
-    private LinearLayout ll_nearby;
-    private LinearLayout ll_wo;
+    private RelativeLayout rl_homepage;
+    private RelativeLayout rl_find;
+    private RelativeLayout rl_hashtag;
+    private RelativeLayout rl_camrea_retro;
+    private RelativeLayout rl_haoyouquan;
+    private RelativeLayout rl_nearby;
+    private RelativeLayout rl_me;
 
-    private TextView tv_ic_shouye;
-    private TextView tv_ic_shaishai;
+    private TextView tv_ic_homepage;
+    private TextView tv_ic_find;
+    private TextView tv_ic_hashtag;
     private TextView tv_ic_haoyouquan;
     private TextView tv_ic_nearby;
-    private TextView tv_ic_wo;
-    private TextView tv_ic_share;
+    private TextView tv_ic_me;
 
-    private TextView tv_shouye;
-    private TextView tv_shaishai;
-    private TextView tv_haoyouquan;
-    private TextView tv_nearby;
-    private TextView tv_wo;
+    private ImageButton ib_picture;
 
-    private Fragment shouYeFragment;
-    private Fragment shaiShaiFragment;
+    private Fragment homePageFragment;
+    private Fragment hashtagFragment;
     private Fragment haoYouQuanFragment;
     private Fragment nearbyFragment;
     private Fragment woFragment;
@@ -58,79 +56,84 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initView() {
-        ll_shouye = (LinearLayout) findViewById(R.id.ll_shouye);
-        ll_shaishai = (LinearLayout) findViewById(R.id.ll_shaishai);
-        ll_haoyouquan = (LinearLayout) findViewById(R.id.ll_haoyouquan);
-        ll_nearby = (LinearLayout) findViewById(R.id.ll_nearby);
-        ll_wo = (LinearLayout) findViewById(R.id.ll_wo);
+        rl_homepage = (RelativeLayout) findViewById(R.id.rl_homepage);
+        rl_find = (RelativeLayout) findViewById(R.id.rl_find);
+        rl_hashtag = (RelativeLayout) findViewById(R.id.rl_hashtag);
+        rl_camrea_retro = (RelativeLayout) findViewById(R.id.rl_camera_retro);
+        rl_haoyouquan = (RelativeLayout) findViewById(R.id.rl_haoyouquan);
+        rl_nearby = (RelativeLayout) findViewById(R.id.rl_nearby);
+        rl_me = (RelativeLayout) findViewById(R.id.rl_me);
 
-        tv_ic_shouye = (TextView) findViewById(R.id.tv_ic_shouye);
-        tv_ic_shaishai = (TextView) findViewById(R.id.tv_ic_shaishai);
+        tv_ic_homepage = (TextView) findViewById(R.id.tv_ic_homepage);
+        tv_ic_find = (TextView) findViewById(R.id.tv_ic_find);
+        tv_ic_hashtag = (TextView) findViewById(R.id.tv_ic_hashtag);
         tv_ic_haoyouquan = (TextView) findViewById(R.id.tv_ic_haoyouquan);
         tv_ic_nearby = (TextView) findViewById(R.id.tv_ic_nearby);
-        tv_ic_wo = (TextView) findViewById(R.id.tv_ic_wo);
-        tv_ic_share = (TextView) findViewById(R.id.tv_ic_share);
+        tv_ic_me = (TextView) findViewById(R.id.tv_ic_me);
 
-        tv_shouye = (TextView) findViewById(R.id.tv_shouye);
-        tv_shaishai = (TextView) findViewById(R.id.tv_shaishai);
-        tv_haoyouquan = (TextView) findViewById(R.id.tv_haoyouquan);
-        tv_nearby = (TextView) findViewById(R.id.tv_nearby);
-        tv_wo = (TextView) findViewById(R.id.tv_wo);
+        ib_picture = (ImageButton) findViewById(R.id.ib_picture);
     }
 
     private void initData() {
         Typeface font = Typeface.createFromAsset(getAssets(), "fontawesome-webfont.ttf");
 
-        tv_ic_shouye.setTypeface(font);
-        tv_ic_shaishai.setTypeface(font);
+        tv_ic_homepage.setTypeface(font);
+        tv_ic_find.setTypeface(font);
+        tv_ic_hashtag.setTypeface(font);
         tv_ic_haoyouquan.setTypeface(font);
         tv_ic_nearby.setTypeface(font);
-        tv_ic_wo.setTypeface(font);
-        tv_ic_share.setTypeface(font);
+        tv_ic_me.setTypeface(font);
     }
 
     private void initEvent() {
-        ll_shouye.setOnClickListener(this);
-        ll_shaishai.setOnClickListener(this);
-        ll_haoyouquan.setOnClickListener(this);
-        ll_nearby.setOnClickListener(this);
-        ll_wo.setOnClickListener(this);
+        rl_homepage.setOnClickListener(this);
+        rl_find.setOnClickListener(this);
+        rl_hashtag.setOnClickListener(this);
+        rl_haoyouquan.setOnClickListener(this);
+        rl_nearby.setOnClickListener(this);
+        rl_me.setOnClickListener(this);
 
-        tv_ic_share.setOnClickListener(this);
+        rl_camrea_retro.setOnClickListener(this);
+
+        ib_picture.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_shouye: {
+            case R.id.rl_homepage: {
                 setSelect(0);
                 break;
             }
 
-            case R.id.ll_shaishai: {
+            case R.id.rl_find: {
                 setSelect(1);
                 break;
             }
 
-            case R.id.ll_haoyouquan: {
+            case R.id.rl_hashtag: {
                 setSelect(2);
                 break;
             }
 
-            case R.id.ll_nearby: {
-                setSelect(3);
-                break;
-            }
-
-            case R.id.ll_wo: {
+            case R.id.rl_haoyouquan: {
                 setSelect(4);
                 break;
             }
 
-            case R.id.tv_ic_share: {
-                Intent intent = new Intent(MainActivity.this, ShareActivity.class);
-                startActivity(intent);
+            case R.id.rl_nearby: {
+                setSelect(5);
                 break;
+            }
+
+            case R.id.rl_me: {
+                setSelect(6);
+                break;
+            }
+
+            case R.id.ib_picture: {
+                Intent intent = new Intent(MainActivity.this, PictureActivity.class);
+                startActivity(intent);
             }
         }
     }
@@ -141,31 +144,46 @@ public class MainActivity extends Activity implements View.OnClickListener {
         FragmentTransaction transaction = fm.beginTransaction();
         hideFragment(transaction);
         switch (i) {
-            case 0:
-                if (shouYeFragment == null) {
-                    shouYeFragment = new ShouYeFragment();
-                    transaction.add(R.id.fl_container, shouYeFragment);
+            case 0: {
+                if (homePageFragment == null) {
+                    homePageFragment = new HomePageFragment();
+                    transaction.add(R.id.fl_container, homePageFragment);
                 } else {
-                    transaction.show(shouYeFragment);
+                    transaction.show(homePageFragment);
                 }
 
-                tv_ic_shouye.setTextColor(getResources().getColor(R.color.ningmenghuang));
-                tv_shouye.setTextColor(getResources().getColor(R.color.ningmenghuang));
+//                tv_ic_homepage.setTextColor(getResources().getColor(R.color.fanqiehong));
+                rl_homepage.setBackgroundColor(getResources().getColor(R.color.fanqiehong));
                 break;
+            }
 
-            case 1:
-                if (shaiShaiFragment == null) {
-                    shaiShaiFragment = new ShaiShaiFragment();
-                    transaction.add(R.id.fl_container, shaiShaiFragment);
+            case 1: {
+                if (homePageFragment == null) {
+                    homePageFragment = new HomePageFragment();
+                    transaction.add(R.id.fl_container, homePageFragment);
                 } else {
-                    transaction.show(shaiShaiFragment);
+                    transaction.show(homePageFragment);
                 }
 
-                tv_ic_shaishai.setTextColor(getResources().getColor(R.color.ningmenghuang));
-                tv_shaishai.setTextColor(getResources().getColor(R.color.ningmenghuang));
+//                tv_ic_find.setTextColor(getResources().getColor(R.color.fanqiehong));
+                rl_find.setBackgroundColor(getResources().getColor(R.color.fanqiehong));
                 break;
+            }
 
-            case 2:
+            case 2: {
+                if (hashtagFragment == null) {
+                    hashtagFragment = new hashtagFragment();
+                    transaction.add(R.id.fl_container, hashtagFragment);
+                } else {
+                    transaction.show(hashtagFragment);
+                }
+
+//                tv_ic_hashtag.setTextColor(getResources().getColor(R.color.fanqiehong));
+                rl_hashtag.setBackgroundColor(getResources().getColor(R.color.fanqiehong));
+                break;
+            }
+
+            case 4: {
                 if (haoYouQuanFragment == null) {
                     haoYouQuanFragment = new HaoYouQuanFragment();
                     transaction.add(R.id.fl_container, haoYouQuanFragment);
@@ -173,11 +191,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     transaction.show(haoYouQuanFragment);
                 }
 
-                tv_ic_haoyouquan.setTextColor(getResources().getColor(R.color.ningmenghuang));
-                tv_haoyouquan.setTextColor(getResources().getColor(R.color.ningmenghuang));
+//                tv_ic_haoyouquan.setTextColor(getResources().getColor(R.color.fanqiehong));
+                rl_haoyouquan.setBackgroundColor(getResources().getColor(R.color.fanqiehong));
                 break;
+            }
 
-            case 3:
+            case 5: {
                 if (nearbyFragment == null) {
                     nearbyFragment = new NearbyFragment();
                     transaction.add(R.id.fl_container, nearbyFragment);
@@ -185,11 +204,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     transaction.show(nearbyFragment);
                 }
 
-                tv_ic_nearby.setTextColor(getResources().getColor(R.color.ningmenghuang));
-                tv_nearby.setTextColor(getResources().getColor(R.color.ningmenghuang));
+//                tv_ic_nearby.setTextColor(getResources().getColor(R.color.fanqiehong));
+                rl_nearby.setBackgroundColor(getResources().getColor(R.color.fanqiehong));
                 break;
+            }
 
-            case 4:
+            case 6: {
                 if (woFragment == null) {
                     woFragment = new WoFragment();
                     transaction.add(R.id.fl_container, woFragment);
@@ -197,20 +217,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     transaction.show(woFragment);
                 }
 
-                tv_ic_wo.setTextColor(getResources().getColor(R.color.ningmenghuang));
-                tv_wo.setTextColor(getResources().getColor(R.color.ningmenghuang));
+//                tv_ic_me.setTextColor(getResources().getColor(R.color.fanqiehong));
+                rl_me.setBackgroundColor(getResources().getColor(R.color.fanqiehong));
                 break;
+            }
         }
         transaction.commit();
     }
 
     private void hideFragment(FragmentTransaction transaction) {
-        if (shouYeFragment != null) {
-            transaction.hide(shouYeFragment);
+        if (homePageFragment != null) {
+            transaction.hide(homePageFragment);
         }
 
-        if (shaiShaiFragment != null) {
-            transaction.hide(shaiShaiFragment);
+        if (hashtagFragment != null) {
+            transaction.hide(hashtagFragment);
         }
 
         if (haoYouQuanFragment != null) {
@@ -227,16 +248,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void resetNavBar() {
-        tv_ic_shouye.setTextColor(getResources().getColor(R.color.xuese));
-        tv_ic_shaishai.setTextColor(getResources().getColor(R.color.xuese));
-        tv_ic_haoyouquan.setTextColor(getResources().getColor(R.color.xuese));
-        tv_ic_nearby.setTextColor(getResources().getColor(R.color.xuese));
-        tv_ic_wo.setTextColor(getResources().getColor(R.color.xuese));
-
-        tv_shouye.setTextColor(getResources().getColor(R.color.xuese));
-        tv_shaishai.setTextColor(getResources().getColor(R.color.xuese));
-        tv_haoyouquan.setTextColor(getResources().getColor(R.color.xuese));
-        tv_nearby.setTextColor(getResources().getColor(R.color.xuese));
-        tv_wo.setTextColor(getResources().getColor(R.color.xuese));
+//        tv_ic_homepage.setTextColor(getResources().getColor(R.color.xuese));
+//        tv_ic_find.setTextColor(getResources().getColor(R.color.xuese));
+//        tv_ic_hashtag.setTextColor(getResources().getColor(R.color.xuese));
+//        tv_ic_haoyouquan.setTextColor(getResources().getColor(R.color.xuese));
+//        tv_ic_nearby.setTextColor(getResources().getColor(R.color.xuese));
+//        tv_ic_me.setTextColor(getResources().getColor(R.color.xuese));
+        rl_homepage.setBackgroundColor(getResources().getColor(R.color.tianqing));
+        rl_find.setBackgroundColor(getResources().getColor(R.color.tianqing));
+        rl_hashtag.setBackgroundColor(getResources().getColor(R.color.tianqing));
+        rl_haoyouquan.setBackgroundColor(getResources().getColor(R.color.tianqing));
+        rl_nearby.setBackgroundColor(getResources().getColor(R.color.tianqing));
+        rl_me.setBackgroundColor(getResources().getColor(R.color.tianqing));
     }
 }

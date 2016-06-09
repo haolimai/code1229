@@ -1,25 +1,36 @@
 <resources>
     <string name="app_name">Code1229</string>
-    <string name="icon_haoyouquan">&#xf1db;</string>
-    <string name="icon_me">&#xf118;</string>
-    <string name="icon_nearby">&#xf041;</string>
-    <string name="icon_shaishai">&#xf185;</string>
-    <string name="icon_share">&#xf067;</string>
-    <string name="icon_shouye">&#xf094;</string>
-    <string name="icon_close">&#xf00d;</string>
-    <string name="icon_text">&#xf040;</string>
-    <string name="icon_photo">&#xf03e;</string>
-    <string name="icon_voice">&#xf130;</string>
-    <string name="icon_video">&#xf03d;</string>
-    <string name="icon_article">&#xf24a;</string>
-    <string name="icon_more">&#xf141;</string>
+    <string name="ic_homepage">&#xf015;</string>
+    <string name="ic_find">&#xf002;</string>
+    <string name="ic_hashtag">&#xf292;</string>
+    <string name="ic_camera_retro">&#xf083;</string>
+    <string name="ic_camera">&#xf030;</string>
+    <string name="ic_haoyouquan">&#xf10c;</string>
+    <string name="ic_nearby">&#xf041;</string>
+    <string name="ic_me">&#xf007;</string>
+    <string name="ic_close">&#xf00d;</string>
+    <string name="ic_switch">&#xf021;</string>
+    <string name="ic_flash">&#xf0e7;</string>
+    <string name="ic_arrow_right">&#xf061;</string>
+    <string name="ic_circle">&#xf111;</string>
+    <string name="ic_video">&#xf03d;</string>
+    <string name="ic_frown">&#xf119;</string>
+    <string name="ic_smile">&#xf118;</string>
+    <string name="ic_heart">&#xf004;</string>
+    <string name="ic_heart_o">&#xf08a;</string>
+    <string name="ic_thumbs_up">&#xf164;</string>
+    <string name="ic_thumbs_o_up">&#xf087;</string>
+    <string name="ic_thumbs_down">&#xf165;</string>
+    <string name="ic_thumbs_o_down">&#xf088;</string>
+    <string name="ic_comment">&#xf075;</string>
+    <string name="ic_comment_o">&#xf0e5;</string>
+    <string name="ic_angle_down">&#xf107;</string>
+    <string name="ic_angle_up">&#xf106;</string>
+    <string name="ic_cloud">&#xf0c2;</string>
+    <string name="ic_sun">&#xf185;</string>
+    <string name="ic_angle_left">&#xf104;</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_share">ShareActivity</string>
-    <string name="wo">我</string>
-    <string name="nearby">nearby</string>
-    <string name="haoyouquan">好友圈</string>
-    <string name="shaishai">晒晒</string>
-    <string name="shouye">首页</string>
+    <string name="login">登陆</string>
 </resources>

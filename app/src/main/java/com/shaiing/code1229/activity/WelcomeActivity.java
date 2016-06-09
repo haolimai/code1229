@@ -2,6 +2,7 @@ package com.shaiing.code1229.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,58 +14,60 @@ import com.shaiing.code1229.R;
  * Created by natalie on 2015/12/30.
  */
 public class WelcomeActivity extends Activity implements View.OnClickListener {
-    private Button btn_login;
-    private Button btn_register;
+    private TextView tvLogin;
+    private TextView tvReg;
 
-    private TextView tv_explore;
+    private Button btnExplore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        initData();
         initView();
         initEvent();
-        initData();
 
     }
 
     public void initView() {
-        btn_login = (Button) findViewById(R.id.btn_login);
-        btn_register = (Button) findViewById(R.id.btn_register);
-        tv_explore = (TextView) findViewById(R.id.tv_explore);
+        tvLogin = (TextView) findViewById(R.id.tvLogin);
+        tvReg = (TextView) findViewById(R.id.tvReg);
+        btnExplore = (Button) findViewById(R.id.btnExplore);
     }
 
     public void initEvent() {
-        btn_login.setOnClickListener(this);
-        btn_register.setOnClickListener(this);
-        tv_explore.setOnClickListener(this);
+        tvLogin.setOnClickListener(this);
+        tvReg.setOnClickListener(this);
+        btnExplore.setOnClickListener(this);
     }
 
     public void initData() {
+        Typeface font = Typeface.createFromAsset(getAssets(), "fontawesome-webfont.ttf");
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_login: {
+            case R.id.tvLogin: {
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 break;
             }
 
-            case R.id.btn_register: {
-                Intent intent = new Intent(this, RegisterActivity.class);
+            case R.id.tvReg: {
+                Intent intent = new Intent(this, RegActivity.class);
                 startActivity(intent);
                 break;
             }
 
-            case R.id.tv_explore: {
-                Intent intent = new Intent(this, MainActivity.class);
+            case R.id.btnExplore: {
+                Intent intent = new Intent(this,MainActivity.class);
                 startActivity(intent);
                 break;
             }
         }
     }
+
 }

@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="登陆"
+                android:text="选择一个用户名"
                 android:textColor="@color/tianqing"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="bold" />
@@ -40,11 +40,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:gravity="center"
             android:padding="@dimen/_10dp"
-            android:text="\u3000\u3000我要做一个厉害的人。厉害就是因为有了我，这个世界会有一点点的不同。"
-            android:textColor="@color/baicaoshuang"
-            android:textStyle="italic" />
+            android:text="用户名是你在晒应的专属标识！"
+            android:textColor="@color/baicaoshuang" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,45 +52,17 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/etUsername"
+                android:id="@+id/etEmail"
                 style="@style/edit_text_common_style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="用户名或电子邮箱"
+                android:hint="用户名"
                 android:inputType="textEmailAddress"
                 android:textCursorDrawable="@null" />
 
             <TextView
-                android:id="@+id/tvClearUsername"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/ic_close"
-                android:textColor="@color/fanqiehong"
-                android:textSize="@dimen/_20sp"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_bottom_border"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/etPwd"
-                style="@style/edit_text_common_style"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="密码"
-                android:inputType="textPassword"
-                android:textCursorDrawable="@null" />
-
-            <TextView
-                android:id="@+id/tvClearPwd"
+                android:id="@+id/tvClearEmail"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -104,13 +75,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnContinue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:alpha="0"
         android:background="@color/tianqing"
-        android:text="@string/login"
+        android:text="继续"
         android:textColor="@color/xuese"
         android:textSize="@dimen/_20sp"
         android:textStyle="bold" />

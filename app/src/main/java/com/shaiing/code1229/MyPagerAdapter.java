@@ -11,9 +11,11 @@ import java.util.List;
  */
 public class MyPagerAdapter extends PagerAdapter {
     private List<View> views;
+    private List<String> titles;
 
-    public MyPagerAdapter(List<View> views) {
+    public MyPagerAdapter(List<View> views, List<String> titles) {
         this.views = views;
+        this.titles = titles;
     }
 
     @Override
@@ -35,5 +37,10 @@ public class MyPagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView(views.get(position));
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titles.get(position);
     }
 }

@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="登陆"
+                android:text="注册"
                 android:textColor="@color/tianqing"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="bold" />
@@ -40,9 +40,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:gravity="center"
             android:padding="@dimen/_10dp"
-            android:text="\u3000\u3000我要做一个厉害的人。厉害就是因为有了我，这个世界会有一点点的不同。"
+            android:text="欢迎你注册晒应！"
             android:textColor="@color/baicaoshuang"
             android:textStyle="italic" />
 
@@ -58,7 +58,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="用户名或电子邮箱"
+                android:hint="电子邮箱"
                 android:inputType="textEmailAddress"
                 android:textCursorDrawable="@null" />
 
@@ -80,18 +80,18 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/etPwd"
+                android:id="@+id/etNewPwd"
                 style="@style/edit_text_common_style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="密码"
+                android:hint="新密码"
                 android:inputType="textPassword"
                 android:textCursorDrawable="@null" />
 
             <TextView
-                android:id="@+id/tvClearPwd"
+                android:id="@+id/tvClearNewPwd"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -103,16 +103,28 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnLogin"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:alpha="0"
-        android:background="@color/tianqing"
-        android:text="@string/login"
-        android:textColor="@color/xuese"
-        android:textSize="@dimen/_20sp"
-        android:textStyle="bold" />
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:background="@color/tianqing"
+            android:text="继续"
+            android:textColor="@color/xuese"
+            android:textSize="@dimen/_20sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
 
 </RelativeLayout>
