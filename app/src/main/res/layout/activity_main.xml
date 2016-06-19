@@ -11,119 +11,128 @@
         android:layout_weight="1" />
 
     <LinearLayout
+        android:paddingTop="2dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/tianqing"
+        android:layout_height="55dp"
+        android:background="@color/rain"
         android:baselineAligned="false">
 
         <RelativeLayout
-            android:id="@+id/rl_homepage"
-            style="@style/common_style">
+            android:id="@+id/rl_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tv_ic_homepage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/ic_homepage"
+                android:id="@+id/tv_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/fa_home"
                 android:textColor="@color/xuese"
-                android:textSize="30sp" />
+                android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_find"
-            style="@style/common_style">
+            android:id="@+id/rl_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tv_ic_find"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/ic_find"
+                android:id="@+id/tv_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/fa_search"
                 android:textColor="@color/xuese"
-                android:textSize="30sp" />
+                android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl_hashtag"
-            style="@style/common_style">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tv_ic_hashtag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/ic_hashtag"
+                android:id="@+id/tv_hashtag"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/fa_hashtag"
                 android:textColor="@color/xuese"
-                android:textSize="30sp" />
+                android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl_camera_retro"
-            style="@style/common_style"
-            android:background="@color/ningmenghuang">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-            <ImageButton
-                android:id="@+id/ib_picture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:textColor="@color/baicaoshuang"
-                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/tv_camera_retro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/fa_camera_retro"
+                android:textColor="@color/xuese"
+                android:textSize="35dp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_haoyouquan"
-            style="@style/common_style">
+            android:id="@+id/rl_circle_o"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tv_ic_haoyouquan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/ic_haoyouquan"
+                android:id="@+id/tv_circle_o"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/fa_circle_o"
                 android:textColor="@color/xuese"
-                android:textSize="30sp" />
+                android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_nearby"
-            style="@style/common_style">
+            android:id="@+id/rl_map_marker"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tv_ic_nearby"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/ic_nearby"
+                android:id="@+id/tv_map_marker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/fa_map_marker"
                 android:textColor="@color/xuese"
-                android:textSize="30sp" />
+                android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_me"
-            style="@style/common_style">
+            android:id="@+id/rl_user"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tv_ic_me"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:text="@string/ic_me"
+                android:id="@+id/tv_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/fa_user"
                 android:textColor="@color/xuese"
-                android:textSize="30sp" />
+                android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
 

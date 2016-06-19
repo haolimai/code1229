@@ -1,11 +1,12 @@
 package com.shaiing.code1229.fragment;
 
-import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
@@ -13,6 +14,7 @@ import android.hardware.Camera;
 import android.media.MediaRecorder;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -21,24 +23,26 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shaiing.code1229.R;
 import com.shaiing.code1229.activity.PhotoAlbumActivity;
+import com.shaiing.code1229.util.CommonUtil;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -52,16 +56,14 @@ import java.util.List;
 public class ImageFragment extends Fragment implements SurfaceHolder.Callback, View.OnClickListener {
     private static final String TAG = "ImageFragment";
 
-    public static final int MEDIA_TYPE_IMAGE = 0;
-    public static final int MEDIA_TYPE_VIDEO = 1;
     private static final int PHOTO_WIDTH = 1224;
     private static final int PHOTO_HEIGHT = 1224;
-    private static final int PHOTO_ANIMATION_DURATION = 600;
+    private static final int PHOTO_ANIMATION_DURATION = 800;
 
     private Camera.PictureCallback mPictureCallback = new Camera.PictureCallback() {
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
-            File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+            File pictureFile = CommonUtil.getOutputMediaFile(CommonUtil.MEDIA_TYPE_IMAGE);
             if (pictureFile == null) {
                 return;
             }
@@ -100,7 +102,7 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                 iv.setImageBitmap(bitmap);
 
                 TextView tv = new TextView(context);
-                tv.setText(getString(R.string.ic_close));
+                tv.setText(getString(R.string.fa_close));
                 tv.setTypeface(font);
                 tv.setTextColor(getResources().getColor(R.color.fanqiehong));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
@@ -126,12 +128,25 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                         if (lp == null) {
                             lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                         }
-                        lp.rightMargin = _3dp;
+                        lp.rightMargin = (int) _3dp;
                         mListRelativeLayouts.get(i).setLayoutParams(lp);
                     }
                 }
 
                 relativeLayout.setOnClickListener(rlOnClickListener);
+
+                float thumbnailWidth = horizontalScrollView.getMeasuredHeight() - 2 * _3dp;
+                int size = mListRelativeLayouts.size();
+                if (screenWidth - 2 * _3dp < thumbnailWidth * size + (size - 1) * _3dp) {
+                    final int s = (int) ((thumbnailWidth * size + (size - 1) * _3dp) - (screenWidth - 2 * _3dp));
+                    Log.d("hlm", "s = " + s);
+                    horizontalScrollView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            horizontalScrollView.smoothScrollTo(s, 0);
+                        }
+                    });
+                }
 
                 ll_photo_album.addView(relativeLayout);
 
@@ -139,17 +154,18 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                         .setDuration(PHOTO_ANIMATION_DURATION)
                         .start();
 
-                ObjectAnimator.ofFloat(relativeLayout, "ScaleX", 0.1f, 1.0f)
-                        .setDuration(PHOTO_ANIMATION_DURATION)
-                        .start();
+//                ObjectAnimator.ofFloat(relativeLayout, "ScaleX", 2.0f, 1.0f)
+//                        .setDuration(PHOTO_ANIMATION_DURATION)
+//                        .start();
 
-                ObjectAnimator.ofFloat(relativeLayout, "ScaleY", 0.1f, 1.0f)
-                        .setDuration(PHOTO_ANIMATION_DURATION)
-                        .start();
+//                ObjectAnimator.ofFloat(relativeLayout, "ScaleY", 0.0f, 1.0f)
+//                        .setDuration(PHOTO_ANIMATION_DURATION)
+//                        .start();
 
-                ObjectAnimator.ofFloat(relativeLayout, "Rotation", 0, 360)
-                        .setDuration(PHOTO_ANIMATION_DURATION)
-                        .start();
+//                ObjectAnimator.ofFloat(relativeLayout, "Rotation", 0, 360)
+//                        .setDuration(PHOTO_ANIMATION_DURATION)
+//                        .start();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -166,10 +182,8 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
     private TextView tv_ic_flash;
     private TextView tv_next;
 
-    private Button btn_kacha;
-    private Button btn_video_recording;
-
-    private ProgressBar mProgressBar;
+    private TextView tv_kacha;
+    private TextView tv_video_recording;
 
     private LinearLayout ll_photo_album;
     private HorizontalScrollView horizontalScrollView;
@@ -178,17 +192,19 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
 
     private boolean isFrontCamera = false;//是否是前置摄像头
     private boolean isPhotoMode = true;//是否是拍照模式
+    private int screenWidth;
 
     private ArrayList<String> mListPhotos;
     private List<RelativeLayout> mListRelativeLayouts;
     private List<TextView> mListTextViews;
 
-    private int screenWidth;
     private Context context;
     private Typeface font;
 
     private int _20dp;
-    private int _3dp;
+    private float _3dp;
+
+    private long ad_time, au_time;
 
     private View.OnClickListener rlOnClickListener = new View.OnClickListener() {
         @Override
@@ -244,13 +260,13 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
         //获取context
         context = ImageFragment.this.getContext();
 
+        //获取屏幕宽度
+        screenWidth = getResources().getDisplayMetrics().widthPixels;
+        Log.d("hlm", "screenWidth = " + screenWidth);
+
         //
         _20dp = getResources().getDimensionPixelSize(R.dimen._20dp);
-        _3dp = getResources().getDimensionPixelSize(R.dimen._3dp);
-
-        //获取屏幕width
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        screenWidth = wm.getDefaultDisplay().getWidth();
+        _3dp = getResources().getDimension(R.dimen._3dp);
 
         Log.e("hlm", "onCreateView()");
         view = inflater.inflate(R.layout.fragment_image, container, false);
@@ -263,20 +279,21 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
         tv_camera_switch = (TextView) view.findViewById(R.id.tv_camera_switch);
         tv_camera_mode_switch = (TextView) view.findViewById(R.id.tv_camera_mode_switch);
         tv_ic_flash = (TextView) view.findViewById(R.id.tv_ic_flash);
-        btn_kacha = (Button) view.findViewById(R.id.btn_kacha);
+        tv_kacha = (TextView) view.findViewById(R.id.tv_kacha);
         tv_next = (TextView) view.findViewById(R.id.tv_next);
-        mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
 
         ll_photo_album = (LinearLayout) view.findViewById(R.id.ll_photo_album);
         horizontalScrollView = (HorizontalScrollView) view.findViewById(R.id.horizontalScrollView);
 
-        btn_video_recording = (Button) view.findViewById(R.id.btn_video_recording);
+        tv_video_recording = (TextView) view.findViewById(R.id.tv_video_recording);
         //init data
         font = Typeface.createFromAsset(getActivity().getAssets(), "fontawesome-webfont.ttf");
         tv_camera_switch.setTypeface(font);
         tv_camera_mode_switch.setTypeface(font);
         tv_ic_flash.setTypeface(font);
         tv_next.setTypeface(font);
+        tv_kacha.setTypeface(font);
+        tv_video_recording.setTypeface(font);
 
         mListPhotos = new ArrayList<>();
         mListRelativeLayouts = new ArrayList<>();
@@ -284,9 +301,9 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
 
         //init event
         mPreview.setOnClickListener(this);
-//        tv_camera_switch.setOnClickListener(this);
+        tv_camera_switch.setOnClickListener(this);
         tv_camera_mode_switch.setOnClickListener(this);
-        btn_kacha.setOnClickListener(this);
+        tv_kacha.setOnClickListener(this);
         tv_next.setOnClickListener(this);
 
         return view;
@@ -308,17 +325,22 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
     public void onResume() {
         super.onResume();
         Log.e("hlm", "onResume()");
-        new Thread() {
+        AsyncTask asyncTask = new AsyncTask() {
+
             @Override
-            public void run() {
+            protected Object doInBackground(Object[] params) {
                 if (mCamera == null) {
                     mCamera = getCameraInstance();
                     if (mHolder != null) {
                         setStartPreview(mCamera, mHolder);
                     }
                 }
+                return null;
             }
-        }.start();
+
+        };
+
+        asyncTask.execute();
 
     }
 
@@ -328,6 +350,7 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
         Log.e("hlm", "onPause()");
         releaseMediaRecorder();
         releaseCamera();
+
     }
 
     @Override
@@ -464,59 +487,23 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
      * Create a file Uri for saving an image or video
      */
     private static Uri getOutputMediaFileUri(int type) {
-        return Uri.fromFile(getOutputMediaFile(type));
+        return Uri.fromFile(CommonUtil.getOutputMediaFile(type));
     }
 
     /**
      * Create a File for saving an image or video
      */
-    /**
-     * Create a File for saving an image or video
-     */
-    private static File getOutputMediaFile(int type) {
-        // To be safe, you should check that the SDCard is mounted
-        // using Environment.getExternalStorageState() before doing this.
-        if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            return null;
-        }
-
-        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "Shaiing");
-        // This location works best if you want the created images to be shared
-        // between applications and persist after your app has been uninstalled.
-
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                Log.d("Shaiing", "failed to create directory");
-                return null;
-            }
-        }
-
-        // Create a media file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE) {
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "IMG_" + timeStamp + ".jpg");
-        } else if (type == MEDIA_TYPE_VIDEO) {
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "VID_" + timeStamp + ".mp4");
-        } else {
-            return null;
-        }
-
-        return mediaFile;
-    }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_kacha:
+            case R.id.tv_kacha:
                 //拍照
                 kacha();
+                Log.d("hlm", "kacha");
                 break;
             case R.id.sv_preview:
+                //手动对焦
                 mCamera.autoFocus(null);
                 break;
             case R.id.tv_next:
@@ -525,16 +512,19 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
             case R.id.tv_camera_mode_switch:
                 isPhotoMode = !isPhotoMode;
                 if (isPhotoMode) {
-                    btn_kacha.setVisibility(View.VISIBLE);
-                    mProgressBar.setVisibility(View.GONE);
-                    btn_video_recording.setVisibility(View.GONE);
-                    tv_camera_mode_switch.setText(getResources().getString(R.string.ic_camera));
+                    tv_kacha.setVisibility(View.VISIBLE);
+                    tv_video_recording.setVisibility(View.GONE);
+                    tv_camera_mode_switch.setText(getResources().getString(R.string.fa_camera_retro));
                 } else {
-                    btn_kacha.setVisibility(View.GONE);
-                    mProgressBar.setVisibility(View.VISIBLE);
-                    btn_video_recording.setVisibility(View.VISIBLE);
-                    tv_camera_mode_switch.setText(getResources().getString(R.string.ic_video));
+                    tv_kacha.setVisibility(View.GONE);
+                    tv_video_recording.setVisibility(View.VISIBLE);
+                    tv_camera_mode_switch.setText(getResources().getString(R.string.fa_video_camera));
                 }
+                break;
+            case R.id.tv_camera_switch:
+                releaseCamera();
+                isFrontCamera = !isFrontCamera;
+                onResume();
                 break;
         }
     }
@@ -551,6 +541,7 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
             @Override
             public void onAutoFocus(boolean success, Camera camera) {
                 if (success) {
+                    Log.d("hlm", "success");
                     mCamera.takePicture(null, null, mPictureCallback);
                 }
             }
