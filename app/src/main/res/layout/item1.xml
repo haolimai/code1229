@@ -59,11 +59,11 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible">
+        android:visibility="gone">
 
     </android.support.v4.view.ViewPager>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/like_border_bottom"
@@ -72,42 +72,33 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_gravity="end"
-            android:gravity="center_vertical">
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
 
-            <TextView
-                android:id="@+id/tv_heart_o"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fa_heart_o"
-                android:textColor="@color/xiangsihui"
-                android:textSize="25sp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@mipmap/heart" />
 
-            <TextView
-                android:id="@+id/tv_comment_o"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="@string/fa_comment_o"
-                android:textColor="@color/xiangsihui"
-                android:textSize="25sp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:src="@mipmap/comment" />
 
-            <TextView
-                android:id="@+id/tv_share_square_o"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fa_share_square_o"
-                android:textColor="@color/xiangsihui"
-                android:textSize="25sp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@mipmap/share" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:orientation="vertical">
 
             <TextView
@@ -128,7 +119,7 @@
 
         </LinearLayout>
 
-    </FrameLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

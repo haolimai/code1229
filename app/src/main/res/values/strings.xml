@@ -35,6 +35,12 @@
     <string name="fa_share_square_o">&#xf045;</string>
     <string name="fa_th_large">&#xf009;</string>
     <string name="fa_th_list">&#xf00b;</string>
+    <string name="fa_mars">&#xf222;</string>
+    <string name="fa_venus">&#xf221;</string>
+    <string name="fa_mars_double">&#xf227;</string>
+    <string name="fa_venus_double">&#xf226;</string>
+    <string name="fa_venus_mars">&#xf228;</string>
+    <string name="fa_certificate">&#xf0a3;</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">登陆</string>

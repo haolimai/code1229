@@ -50,13 +50,13 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.MyViewHold
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item1, parent, false);
 
-        TextView tv_heart_o = (TextView) view.findViewById(R.id.tv_heart_o);
-        tv_heart_o.setOnClickListener(this);
-        TextView tv_comment_o = (TextView) view.findViewById(R.id.tv_comment_o);
-        tv_comment_o.setOnClickListener(this);
-        TextView tv_share_square_o = (TextView) view.findViewById(R.id.tv_share_square_o);
-        tv_share_square_o.setOnClickListener(this);
-        CommonUtil.setFontAwesome(mContext, tv_heart_o, tv_comment_o, tv_share_square_o);
+//        TextView tv_heart_o = (TextView) view.findViewById(R.id.tv_heart_o);
+//        tv_heart_o.setOnClickListener(this);
+//        TextView tv_comment_o = (TextView) view.findViewById(R.id.tv_comment_o);
+//        tv_comment_o.setOnClickListener(this);
+//        TextView tv_share_square_o = (TextView) view.findViewById(R.id.tv_share_square_o);
+//        tv_share_square_o.setOnClickListener(this);
+//        CommonUtil.setFontAwesome(mContext, tv_heart_o, tv_comment_o, tv_share_square_o);
 
         MyViewHolder holder = new MyViewHolder(view);
         ViewGroup.LayoutParams lp = holder.viewPager.getLayoutParams();
@@ -147,22 +147,22 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.MyViewHold
     public void onClick(View v) {
         TextView tv = (TextView) v;
         switch (v.getId()) {
-            case R.id.tv_heart_o: {
-                isLike = !isLike;
-                if (isLike) {
-                    tv.setText(mContext.getString(R.string.fa_heart));
-                    tv.setTextColor(mContext.getResources().getColor(R.color.yanghong));
-                } else {
-                    tv.setText(mContext.getString(R.string.fa_heart_o));
-                    tv.setTextColor(mContext.getResources().getColor(R.color.xiangsihui));
-                }
-                break;
-            }
-
-            case R.id.tv_comment_o: {
-
-                break;
-            }
+//            case R.id.tv_heart_o: {
+//                isLike = !isLike;
+//                if (isLike) {
+//                    tv.setText(mContext.getString(R.string.fa_heart));
+//                    tv.setTextColor(mContext.getResources().getColor(R.color.yanghong));
+//                } else {
+//                    tv.setText(mContext.getString(R.string.fa_heart_o));
+//                    tv.setTextColor(mContext.getResources().getColor(R.color.xiangsihui));
+//                }
+//                break;
+//            }
+//
+//            case R.id.tv_comment_o: {
+//
+//                break;
+//            }
 
         }
     }
