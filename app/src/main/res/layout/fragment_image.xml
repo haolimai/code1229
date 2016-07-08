@@ -7,7 +7,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/ningmenghuang">
+        android:background="@color/jiehong">
+
+        <Button
+            android:id="@+id/btn_gallery"
+            style="@android:style/Widget.Holo.Button.Borderless.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:text="相册"
+            android:textColor="@color/xuese"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -96,7 +106,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:text="@string/fa_arrow_right"
-            android:textColor="@color/ningmenghuang"
+            android:textColor="@color/jiehong"
             android:textSize="30sp" />
 
         <ProgressBar

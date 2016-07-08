@@ -1,20 +1,15 @@
 package com.shaiing.code1229.fragment;
 
-import android.animation.ObjectAnimator;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.shaiing.code1229.MyPagerAdapter;
+import com.shaiing.code1229.adapter.MyPagerAdapter;
 import com.shaiing.code1229.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +17,7 @@ import java.util.List;
 /**
  * Created by natalie on 2016/1/6.
  */
-public class HaoYouQuanFragment extends Fragment implements ViewPager.OnPageChangeListener {
+public class CommentFragment extends Fragment implements ViewPager.OnPageChangeListener {
     private MyPagerAdapter adapter;
 
     @Override

@@ -2,12 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/xuese"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp">
 
         <ImageView
             android:id="@+id/iv_avatar"
@@ -21,158 +25,212 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/iv_avatar"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
+            android:layout_toRightOf="@+id/iv_avatar"
             android:text="nickname"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
+            android:textColor="@color/hailan" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_current_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/" />
+
+            <TextView
+                android:id="@+id/tv_total_pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+    </android.support.v4.view.ViewPager>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/like_border_bottom"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="end"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_heart_o"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_heart_o"
+                android:textColor="@color/xiangsihui"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/tv_comment_o"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/fa_comment_o"
+                android:textColor="@color/xiangsihui"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/tv_share_square_o"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_share_square_o"
+                android:textColor="@color/xiangsihui"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10254赞"
+                android:textColor="@color/xiangsihui"
+                android:textSize="12sp"
+                android:typeface="monospace" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7254转发"
+                android:textColor="@color/xiangsihui"
+                android:textSize="12sp"
+                android:typeface="monospace" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="natalie portman"
+            android:textColor="@color/hailan"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\u3000\u3000Jack is seven years old. He lives in an ordinary family, unlike other child, he is much mature and knows to be grateful to his parents. Jack always wants to give his mother a surprise, because he knows his mother has done so much for the family. So he buys a flower and send to his mother. The mother is so moved and feel very happy. "
+            android:textColor="@color/xiangsihui" />
 
         <TextView
             android:id="@+id/tv_pub_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:text="time"
-            android:textColor="@color/zhenghui" />
-    </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/iv_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="picture"
-        android:src="@mipmap/ic_launcher" />
+            android:layout_gravity="end"
+            android:text="2天前"
+            android:textColor="@color/zhenghui"
+            android:textSize="12sp" />
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_desc"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_bottom"
-        android:padding="10dp"
-        android:text="desc"
-        android:textColor="@color/xiangsihui" />
+        android:layout_marginLeft="15dp"
+        android:text="全部15427次评论"
+        android:textColor="@color/zhenghui" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp">
-
-        <TextView
-            android:id="@+id/tv_ic_thumbs_up"
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:text="@string/fa_thumbs_up"
-            android:textColor="@color/zitenghui"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/tv_ic_smile"
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:text="@string/fa_smile_o"
-            android:textColor="@color/zitenghui"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/tv_ic_frown"
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:text="@string/fa_frown_o"
-            android:textColor="@color/zitenghui"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/tv_ic_comment_o"
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:text="@string/fa_comment_o"
-            android:textColor="@color/zitenghui"
-            android:textSize="25sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp">
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:text="10254"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
+            android:text="margotrobbie"
+            android:textColor="@color/hailan"
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="次赞，"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:text="102545"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="次微笑"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
-
+            android:text="\u3000\u3000I feel very happy."
+            android:textColor="@color/xiangsihui" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp">
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:text="0"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
+            android:text="我是一个很有自信的人"
+            android:textColor="@color/hailan"
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="次皱眉，"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
+            android:text="\u3000\u3000这真是太有逼格了。"
+            android:textColor="@color/xiangsihui" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="456"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
+            android:text="mcmike"
+            android:textColor="@color/hailan"
+            android:textStyle="italic" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="次评论"
-            android:textColor="@color/tianqing"
-            android:textStyle="bold" />
+            android:text="\u3000\u3000check it out!!!"
+            android:textColor="@color/xiangsihui" />
+
     </LinearLayout>
 
 </LinearLayout>

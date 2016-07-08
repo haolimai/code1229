@@ -1,7 +1,10 @@
 package com.shaiing.code1229.util;
 
+import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -51,5 +54,13 @@ public class CommonUtil {
         }
 
         return mediaFile;
+    }
+
+    //给TextView 设置Font Awesome
+    public static void setFontAwesome(Context context, TextView... textViews) {
+        Typeface font = Typeface.createFromAsset(context.getAssets(), "fontawesome-webfont.ttf");
+        for (TextView tv : textViews) {
+            tv.setTypeface(font);
+        }
     }
 }

@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.shaiing.code1229.R;
-import com.shaiing.code1229.SimpleAdapter;
+import com.shaiing.code1229.adapter.SimpleAdapter;
 import com.shaiing.code1229.bean.HomePageBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePageFragment extends Fragment {
+public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private List<HomePageBean> mList;
     private SimpleAdapter mSimpleAdapter;

@@ -11,23 +11,22 @@
         android:layout_weight="1" />
 
     <LinearLayout
-        android:paddingTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="@color/rain"
+        android:background="@color/jiehuang"
         android:baselineAligned="false">
 
         <RelativeLayout
             android:id="@+id/rl_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tv_home"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/fa_home"
                 android:textColor="@color/xuese"
                 android:textSize="@dimen/tv_ic_size" />
@@ -38,31 +37,14 @@
             android:id="@+id/rl_search"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tv_search"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/fa_search"
-                android:textColor="@color/xuese"
-                android:textSize="@dimen/tv_ic_size" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_hashtag"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/tv_hashtag"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/fa_hashtag"
                 android:textColor="@color/xuese"
                 android:textSize="@dimen/tv_ic_size" />
 
@@ -72,48 +54,31 @@
             android:id="@+id/rl_camera_retro"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tv_camera_retro"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/fa_camera_retro"
-                android:textColor="@color/xuese"
-                android:textSize="35dp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_circle_o"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/tv_circle_o"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/fa_circle_o"
-                android:textColor="@color/xuese"
+                android:textColor="@color/baicaoshuang"
                 android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_map_marker"
+            android:id="@+id/rl_comment"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
             <TextView
-                android:id="@+id/tv_map_marker"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/fa_map_marker"
+                android:id="@+id/tv_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fa_comment"
                 android:textColor="@color/xuese"
                 android:textSize="@dimen/tv_ic_size" />
 
@@ -123,13 +88,13 @@
             android:id="@+id/rl_user"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tv_user"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/fa_user"
                 android:textColor="@color/xuese"
                 android:textSize="@dimen/tv_ic_size" />

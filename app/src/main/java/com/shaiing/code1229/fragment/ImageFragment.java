@@ -39,6 +39,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shaiing.code1229.R;
+import com.shaiing.code1229.activity.GalleryActivity;
 import com.shaiing.code1229.activity.PhotoAlbumActivity;
 import com.shaiing.code1229.util.CommonUtil;
 
@@ -68,6 +69,62 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                 return;
             }
 
+            RelativeLayout rl = new RelativeLayout(context);
+
+            ImageView iv = new ImageView(context);
+            iv.setAdjustViewBounds(true);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            Matrix matrix = new Matrix();
+            matrix.setRotate(90);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, false);
+            iv.setImageBitmap(bitmap);
+
+            TextView tv = new TextView(context);
+            tv.setText(getString(R.string.fa_close));
+            tv.setTypeface(font);
+            tv.setTextColor(getResources().getColor(R.color.fanqiehong));
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+            tv.setGravity(Gravity.CENTER);
+            tv.setClickable(true);
+            tv.setOnClickListener(tvOnClickListener);
+
+            rl.addView(iv);
+            rl.addView(tv);
+
+            mListTextViews.add(tv);
+            mListRelativeLayouts.add(rl);
+            mListPhotos.add(pictureFile.getAbsolutePath());
+
+            LinearLayout.LayoutParams lp = null;
+            for (int i = 0; i < mListRelativeLayouts.size(); i++) {
+                if (i != mListRelativeLayouts.size() - 1) {
+                    lp = (LinearLayout.LayoutParams) mListRelativeLayouts.get(i).getLayoutParams();
+                    if (lp == null) {
+                        lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    }
+                    lp.rightMargin = (int) _3dp;
+                    mListRelativeLayouts.get(i).setLayoutParams(lp);
+                }
+            }
+
+            rl.setOnClickListener(rlOnClickListener);
+
+            float thumbnailWidth = horizontalScrollView.getMeasuredHeight() - 2 * _3dp;
+            int size = mListRelativeLayouts.size();
+            if (screenWidth - 2 * _3dp < thumbnailWidth * size + (size - 1) * _3dp) {
+                final int s = (int) ((thumbnailWidth * size + (size - 1) * _3dp) - (screenWidth - 2 * _3dp));
+                Log.d("hlm", "s = " + s);
+                horizontalScrollView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        horizontalScrollView.smoothScrollTo(s, 0);
+                    }
+                });
+            }
+
+            ll_photo_album.addView(rl);
+            mCamera.startPreview();
+
             try {
                 FileOutputStream fos = new FileOutputStream(pictureFile);
                 BufferedOutputStream bos = new BufferedOutputStream(fos);
@@ -89,80 +146,8 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                         }
                 );
 
-                mCamera.startPreview();
 
-                final RelativeLayout relativeLayout = new RelativeLayout(context);
-
-                ImageView iv = new ImageView(context);
-                iv.setAdjustViewBounds(true);
-                Bitmap bitmap = BitmapFactory.decodeFile(pictureFile.getAbsolutePath());
-                Matrix matrix = new Matrix();
-                matrix.setRotate(90);
-                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, false);
-                iv.setImageBitmap(bitmap);
-
-                TextView tv = new TextView(context);
-                tv.setText(getString(R.string.fa_close));
-                tv.setTypeface(font);
-                tv.setTextColor(getResources().getColor(R.color.fanqiehong));
-                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-                tv.setGravity(Gravity.CENTER);
-                tv.setClickable(true);
-                tv.setOnClickListener(tvOnClickListener);
-                RelativeLayout.LayoutParams rl_lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                rl_lp.width = _20dp;
-                rl_lp.height = _20dp;
-                rl_lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
-
-                relativeLayout.addView(iv);
-                relativeLayout.addView(tv, rl_lp);
-
-                mListTextViews.add(tv);
-                mListRelativeLayouts.add(relativeLayout);
-                mListPhotos.add(pictureFile.getAbsolutePath());
-
-                LinearLayout.LayoutParams lp = null;
-                for (int i = 0; i < mListRelativeLayouts.size(); i++) {
-                    if (i != mListRelativeLayouts.size() - 1) {
-                        lp = (LinearLayout.LayoutParams) mListRelativeLayouts.get(i).getLayoutParams();
-                        if (lp == null) {
-                            lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                        }
-                        lp.rightMargin = (int) _3dp;
-                        mListRelativeLayouts.get(i).setLayoutParams(lp);
-                    }
-                }
-
-                relativeLayout.setOnClickListener(rlOnClickListener);
-
-                float thumbnailWidth = horizontalScrollView.getMeasuredHeight() - 2 * _3dp;
-                int size = mListRelativeLayouts.size();
-                if (screenWidth - 2 * _3dp < thumbnailWidth * size + (size - 1) * _3dp) {
-                    final int s = (int) ((thumbnailWidth * size + (size - 1) * _3dp) - (screenWidth - 2 * _3dp));
-                    Log.d("hlm", "s = " + s);
-                    horizontalScrollView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            horizontalScrollView.smoothScrollTo(s, 0);
-                        }
-                    });
-                }
-
-                ll_photo_album.addView(relativeLayout);
-
-                ObjectAnimator.ofFloat(relativeLayout, "alpha", 0, 1)
-                        .setDuration(PHOTO_ANIMATION_DURATION)
-                        .start();
-
-//                ObjectAnimator.ofFloat(relativeLayout, "ScaleX", 2.0f, 1.0f)
-//                        .setDuration(PHOTO_ANIMATION_DURATION)
-//                        .start();
-
-//                ObjectAnimator.ofFloat(relativeLayout, "ScaleY", 0.0f, 1.0f)
-//                        .setDuration(PHOTO_ANIMATION_DURATION)
-//                        .start();
-
-//                ObjectAnimator.ofFloat(relativeLayout, "Rotation", 0, 360)
+//                ObjectAnimator.ofFloat(rl, "alpha", 0, 1)
 //                        .setDuration(PHOTO_ANIMATION_DURATION)
 //                        .start();
 
@@ -184,6 +169,8 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
 
     private TextView tv_kacha;
     private TextView tv_video_recording;
+
+    private Button btn_gallery;
 
     private LinearLayout ll_photo_album;
     private HorizontalScrollView horizontalScrollView;
@@ -286,14 +273,17 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
         horizontalScrollView = (HorizontalScrollView) view.findViewById(R.id.horizontalScrollView);
 
         tv_video_recording = (TextView) view.findViewById(R.id.tv_video_recording);
+        btn_gallery = (Button) view.findViewById(R.id.btn_gallery);
+
         //init data
-        font = Typeface.createFromAsset(getActivity().getAssets(), "fontawesome-webfont.ttf");
-        tv_camera_switch.setTypeface(font);
-        tv_camera_mode_switch.setTypeface(font);
-        tv_ic_flash.setTypeface(font);
-        tv_next.setTypeface(font);
-        tv_kacha.setTypeface(font);
-        tv_video_recording.setTypeface(font);
+        CommonUtil.setFontAwesome(getActivity(), tv_camera_switch, tv_camera_mode_switch,
+                tv_ic_flash, tv_next, tv_kacha, tv_video_recording);
+//        tv_camera_switch.setTypeface(font);
+//        tv_camera_mode_switch.setTypeface(font);
+//        tv_ic_flash.setTypeface(font);
+//        tv_next.setTypeface(font);
+//        tv_kacha.setTypeface(font);
+//        tv_video_recording.setTypeface(font);
 
         mListPhotos = new ArrayList<>();
         mListRelativeLayouts = new ArrayList<>();
@@ -305,6 +295,7 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
         tv_camera_mode_switch.setOnClickListener(this);
         tv_kacha.setOnClickListener(this);
         tv_next.setOnClickListener(this);
+        btn_gallery.setOnClickListener(this);
 
         return view;
     }
@@ -525,6 +516,11 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                 releaseCamera();
                 isFrontCamera = !isFrontCamera;
                 onResume();
+                break;
+
+            case R.id.btn_gallery:
+                Intent intent = new Intent(getActivity(), GalleryActivity.class);
+                getActivity().startActivity(intent);
                 break;
         }
     }

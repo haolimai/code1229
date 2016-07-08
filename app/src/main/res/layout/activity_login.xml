@@ -37,15 +37,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:padding="@dimen/_10dp"
-            android:text="\u3000\u3000我要做一个厉害的人。厉害就是因为有了我，这个世界会有一点点的不同。"
-            android:textColor="@color/baicaoshuang"
-            android:textStyle="italic" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

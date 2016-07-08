@@ -6,9 +6,12 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shaiing.code1229.R;
+
+import java.net.URL;
 
 /**
  * Created by natalie on 2015/12/30.
@@ -18,6 +21,7 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
     private TextView tvReg;
 
     private Button btnExplore;
+    private ImageView iv_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +32,21 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
         initView();
         initEvent();
 
+        //test
     }
 
     public void initView() {
         tvLogin = (TextView) findViewById(R.id.tvLogin);
         tvReg = (TextView) findViewById(R.id.tvReg);
         btnExplore = (Button) findViewById(R.id.btnExplore);
+        iv_icon = (ImageView) findViewById(R.id.iv_icon);
     }
 
     public void initEvent() {
         tvLogin.setOnClickListener(this);
         tvReg.setOnClickListener(this);
         btnExplore.setOnClickListener(this);
+        iv_icon.setOnClickListener(this);
     }
 
     public void initData() {
@@ -62,7 +69,7 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
                 break;
             }
 
-            case R.id.btnExplore: {
+            case R.id.iv_icon: {
                 Intent intent = new Intent(this,MainActivity.class);
                 startActivity(intent);
                 break;

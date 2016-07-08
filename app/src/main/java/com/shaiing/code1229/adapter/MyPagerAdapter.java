@@ -1,4 +1,4 @@
-package com.shaiing.code1229;
+package com.shaiing.code1229.adapter;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;

@@ -12,11 +12,11 @@ import com.shaiing.code1229.R;
 /**
  * Created by natalie on 2016/1/6.
  */
-public class WoFragment extends Fragment {
+public class UserFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wo, container, false);
+        View view = inflater.inflate(R.layout.fragment_user, container, false);
         return view;
     }
 }

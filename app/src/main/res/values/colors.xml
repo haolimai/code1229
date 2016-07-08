@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="qiantengzi">#c4c3cb</color>
     <color name="xuese">#fffafa</color>
+    <color name="xs">#ccfffafa</color>
     <color name="transparent">#00000000</color>
     <color name="ningmenghuang">#e9db39</color>
     <color name="sanlyv">#90caaf</color>
@@ -14,6 +15,7 @@
     <color name="qianlan">#89cff0</color>
     <color name="yuejihong">#bb1c33</color>
     <color name="jiehuang">#e8853b</color>
+    <color name="jiehong">#e7693f</color>
     <color name="fanqiehong">#c4473d</color>
     <color name="shenyan">#5a4c4c</color>
     <color name="yanghong">#dc143c</color>
@@ -23,5 +25,6 @@
     <color name="xiangsihui">#625c52</color>
     <color name="qianxieya">#eacdd1</color>
     <color name="rain">#449CB7</color>
+    <color name="hailan">#17507d</color>
 
 </resources>

@@ -44,7 +44,7 @@ public class TextImageActivity extends AppCompatActivity implements ViewPager.On
     private static final int CACHE_ITEM = 3;
 
     private int[] mImgs = {
-            R.drawable.glass, R.drawable.clear, R.drawable.hot, R.drawable.rain
+            R.drawable.glass, R.drawable.white, R.drawable.clear, R.drawable.hot, R.drawable.rain
     };
 
     private Context context;
@@ -179,7 +179,7 @@ public class TextImageActivity extends AppCompatActivity implements ViewPager.On
         paint.setAntiAlias(true);
         paint.setDither(true);
         paint.setFakeBoldText(true);
-        paint.setColor(getResources().getColor(R.color.xiangsihui));
+        paint.setColor(getResources().getColor(R.color.xuese));
         paint.setTextSize(tv_text.getTextSize());
 
         Rect textBounds = new Rect();

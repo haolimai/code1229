@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shaiing.code1229.MyPagerAdapter;
+import com.shaiing.code1229.adapter.MyPagerAdapter;
 import com.shaiing.code1229.R;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by natalie on 2016/1/6.
  */
-public class NearbyFragment extends Fragment implements ViewPager.OnPageChangeListener {
+public class SearchFragment extends Fragment implements ViewPager.OnPageChangeListener {
     private MyPagerAdapter adapter;
 
     @Override
@@ -25,26 +25,23 @@ public class NearbyFragment extends Fragment implements ViewPager.OnPageChangeLi
         super.onCreate(savedInstanceState);
 
         List<String> titles = new ArrayList<>();
-        titles.add("附近的人");
-        titles.add("附近的事");
-        titles.add("发现");
+        titles.add("晒什么");
+        titles.add("回复");
 
         List<View> views = new ArrayList<>();
-        views.add(View.inflate(getActivity(), R.layout.view7, null));
-        views.add(View.inflate(getActivity(), R.layout.view8, null));
-        views.add(View.inflate(getActivity(), R.layout.view9, null));
+        views.add(View.inflate(getActivity(), R.layout.view3, null));
+        views.add(View.inflate(getActivity(), R.layout.view4, null));
 
-        adapter = new MyPagerAdapter(views,titles);
+        adapter = new MyPagerAdapter(views, titles);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_nearby, container, false);
+        View view = inflater.inflate(R.layout.fragment_shai_shai, container, false);
 
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(1, true);
         viewPager.addOnPageChangeListener(this);
 
 //        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
@@ -66,10 +63,6 @@ public class NearbyFragment extends Fragment implements ViewPager.OnPageChangeLi
             }
 
             case 1: {
-                break;
-            }
-
-            case 2: {
                 break;
             }
         }
