@@ -1,11 +1,11 @@
 package com.shaiing.code1229.activity;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,7 +17,7 @@ import com.shaiing.code1229.fragment.SearchFragment;
 import com.shaiing.code1229.fragment.UserFragment;
 import com.shaiing.code1229.util.CommonUtil;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private RelativeLayout rl_home;
     private RelativeLayout rl_search;
     private RelativeLayout rl_camrea_retro;
@@ -110,7 +110,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void setSelect(int i) {
         resetNavBar();
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         hideFragment(transaction);
         switch (i) {
@@ -122,7 +122,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     transaction.show(homeFragment);
                 }
 
-                rl_home.setBackgroundColor(getResources().getColor(R.color.jiehuang));
+                rl_home.setBackgroundColor(getResources().getColor(R.color.ningmenghuang));
+                tv_home.setTextColor(getResources().getColor(android.R.color.white));
                 break;
             }
 
@@ -134,7 +135,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     transaction.show(searchFragment);
                 }
 
-                rl_search.setBackgroundColor(getResources().getColor(R.color.jiehuang));
+                rl_search.setBackgroundColor(getResources().getColor(R.color.ningmenghuang));
+                tv_search.setTextColor(getResources().getColor(android.R.color.white));
                 break;
             }
 
@@ -146,7 +148,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     transaction.show(commentFragment);
                 }
 
-                rl_comment.setBackgroundColor(getResources().getColor(R.color.jiehuang));
+                rl_comment.setBackgroundColor(getResources().getColor(R.color.ningmenghuang));
+                tv_comment.setTextColor(getResources().getColor(android.R.color.white));
                 break;
             }
 
@@ -158,7 +161,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     transaction.show(userFragment);
                 }
 
-                rl_user.setBackgroundColor(getResources().getColor(R.color.jiehuang));
+                rl_user.setBackgroundColor(getResources().getColor(R.color.ningmenghuang));
+                tv_user.setTextColor(getResources().getColor(android.R.color.white));
                 break;
             }
         }
@@ -184,13 +188,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void resetNavBar() {
-//        tv_home.setTextColor(Color.parseColor("#a3a7a8"));
-//        tv_search.setTextColor(Color.parseColor("#a3a7a8"));
-//        tv_user.setTextColor(Color.parseColor("#a3a7a8"));
-//        tv_comment.setTextColor(Color.parseColor("#a3a7a8"));
-        rl_home.setBackgroundColor(getResources().getColor(R.color.jiehuang));
-        rl_search.setBackgroundColor(getResources().getColor(R.color.jiehuang));
-        rl_comment.setBackgroundColor(getResources().getColor(R.color.jiehuang));
-        rl_user.setBackgroundColor(getResources().getColor(R.color.jiehuang));
+        tv_home.setTextColor(getResources().getColor(R.color.ningmenghuang));
+        tv_search.setTextColor(getResources().getColor(R.color.ningmenghuang));
+        tv_user.setTextColor(getResources().getColor(R.color.ningmenghuang));
+        tv_comment.setTextColor(getResources().getColor(R.color.ningmenghuang));
+
+        rl_home.setBackgroundColor(getResources().getColor(android.R.color.white));
+        rl_search.setBackgroundColor(getResources().getColor(android.R.color.white));
+        rl_user.setBackgroundColor(getResources().getColor(android.R.color.white));
+        rl_comment.setBackgroundColor(getResources().getColor(android.R.color.white));
+
     }
 }

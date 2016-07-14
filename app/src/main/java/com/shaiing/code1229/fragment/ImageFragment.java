@@ -1,12 +1,9 @@
 package com.shaiing.code1229.fragment;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
@@ -16,23 +13,19 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -41,17 +34,14 @@ import android.widget.Toast;
 import com.shaiing.code1229.R;
 import com.shaiing.code1229.activity.GalleryActivity;
 import com.shaiing.code1229.activity.PhotoAlbumActivity;
+import com.shaiing.code1229.adapter.PhotoAdapter;
 import com.shaiing.code1229.util.CommonUtil;
-
-import org.w3c.dom.Text;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ImageFragment extends Fragment implements SurfaceHolder.Callback, View.OnClickListener {
@@ -69,61 +59,26 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                 return;
             }
 
-            RelativeLayout rl = new RelativeLayout(context);
-
-            ImageView iv = new ImageView(context);
-            iv.setAdjustViewBounds(true);
             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
             Matrix matrix = new Matrix();
             matrix.setRotate(90);
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, false);
-            iv.setImageBitmap(bitmap);
+            mListBitmaps.add(bitmap);
+            mPhotoAdapter.notifyItemInserted(mPhotoPosition++);
 
-            TextView tv = new TextView(context);
-            tv.setText(getString(R.string.fa_close));
-            tv.setTypeface(font);
-            tv.setTextColor(getResources().getColor(R.color.fanqiehong));
-            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-            tv.setGravity(Gravity.CENTER);
-            tv.setClickable(true);
-            tv.setOnClickListener(tvOnClickListener);
+//            float thumbnailWidth = mRecyclerView.getMeasuredHeight() - 2 * mPhotoSpace;
+//            int size = mListRelativeLayouts.size();
+//            if (screenWidth - 2 * mPhotoSpace < thumbnailWidth * size + (size - 1) * mPhotoSpace) {
+//                final int s = (int) ((thumbnailWidth * size + (size - 1) * mPhotoSpace) - (screenWidth - 2 * mPhotoSpace));
+//                Log.d("hlm", "s = " + s);
+//                mRecyclerView.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        mRecyclerView.smoothScrollBy(s, 0);
+//                    }
+//                });
+//            }
 
-            rl.addView(iv);
-            rl.addView(tv);
-
-            mListTextViews.add(tv);
-            mListRelativeLayouts.add(rl);
-            mListPhotos.add(pictureFile.getAbsolutePath());
-
-            LinearLayout.LayoutParams lp = null;
-            for (int i = 0; i < mListRelativeLayouts.size(); i++) {
-                if (i != mListRelativeLayouts.size() - 1) {
-                    lp = (LinearLayout.LayoutParams) mListRelativeLayouts.get(i).getLayoutParams();
-                    if (lp == null) {
-                        lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    }
-                    lp.rightMargin = (int) _3dp;
-                    mListRelativeLayouts.get(i).setLayoutParams(lp);
-                }
-            }
-
-            rl.setOnClickListener(rlOnClickListener);
-
-            float thumbnailWidth = horizontalScrollView.getMeasuredHeight() - 2 * _3dp;
-            int size = mListRelativeLayouts.size();
-            if (screenWidth - 2 * _3dp < thumbnailWidth * size + (size - 1) * _3dp) {
-                final int s = (int) ((thumbnailWidth * size + (size - 1) * _3dp) - (screenWidth - 2 * _3dp));
-                Log.d("hlm", "s = " + s);
-                horizontalScrollView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        horizontalScrollView.smoothScrollTo(s, 0);
-                    }
-                });
-            }
-
-            ll_photo_album.addView(rl);
-            mCamera.startPreview();
 
             try {
                 FileOutputStream fos = new FileOutputStream(pictureFile);
@@ -146,11 +101,7 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                         }
                 );
 
-
-//                ObjectAnimator.ofFloat(rl, "alpha", 0, 1)
-//                        .setDuration(PHOTO_ANIMATION_DURATION)
-//                        .start();
-
+                mCamera.startPreview();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -172,10 +123,12 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
 
     private Button btn_gallery;
 
-    private LinearLayout ll_photo_album;
-    private HorizontalScrollView horizontalScrollView;
-
     private View view;
+    private RecyclerView mRecyclerView;
+    private PhotoAdapter mPhotoAdapter;
+    private List<Bitmap> mListBitmaps;
+    private int mPhotoPosition;
+    private float mPhotoSpace;
 
     private boolean isFrontCamera = false;//是否是前置摄像头
     private boolean isPhotoMode = true;//是否是拍照模式
@@ -187,9 +140,6 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
 
     private Context context;
     private Typeface font;
-
-    private int _20dp;
-    private float _3dp;
 
     private long ad_time, au_time;
 
@@ -222,7 +172,6 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
                 }
             }
 
-            ll_photo_album.removeViewAt(currentIndex);
             mListTextViews.remove(currentIndex);
             mListRelativeLayouts.remove(currentIndex);
             mListPhotos.remove(currentIndex);
@@ -252,8 +201,7 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
         Log.d("hlm", "screenWidth = " + screenWidth);
 
         //
-        _20dp = getResources().getDimensionPixelSize(R.dimen._20dp);
-        _3dp = getResources().getDimension(R.dimen._3dp);
+        mPhotoSpace = getResources().getDimension(R.dimen.photo_space);
 
         Log.e("hlm", "onCreateView()");
         view = inflater.inflate(R.layout.fragment_image, container, false);
@@ -269,11 +217,10 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
         tv_kacha = (TextView) view.findViewById(R.id.tv_kacha);
         tv_next = (TextView) view.findViewById(R.id.tv_next);
 
-        ll_photo_album = (LinearLayout) view.findViewById(R.id.ll_photo_album);
-        horizontalScrollView = (HorizontalScrollView) view.findViewById(R.id.horizontalScrollView);
-
         tv_video_recording = (TextView) view.findViewById(R.id.tv_video_recording);
         btn_gallery = (Button) view.findViewById(R.id.btn_gallery);
+
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         //init data
         CommonUtil.setFontAwesome(getActivity(), tv_camera_switch, tv_camera_mode_switch,
@@ -288,6 +235,12 @@ public class ImageFragment extends Fragment implements SurfaceHolder.Callback, V
         mListPhotos = new ArrayList<>();
         mListRelativeLayouts = new ArrayList<>();
         mListTextViews = new ArrayList<>();
+        mListBitmaps = new ArrayList<>();
+
+        mPhotoAdapter = new PhotoAdapter(getActivity(), mListBitmaps);
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setAdapter(mPhotoAdapter);
 
         //init event
         mPreview.setOnClickListener(this);

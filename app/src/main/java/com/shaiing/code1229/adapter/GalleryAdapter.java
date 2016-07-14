@@ -77,7 +77,7 @@ public class GalleryAdapter extends BaseAdapter {
                 if (mSelectedImgs.contains(filePath)) {
                     mSelectedImgs.remove(filePath);
                     viewHolder.iv.setColorFilter(null);
-                    viewHolder.tv.setTextColor(mContext.getResources().getColor(R.color.xuese));
+                    viewHolder.tv.setTextColor(mContext.getResources().getColor(android.R.color.white));
                 } else {
                     mSelectedImgs.add(filePath);
                     viewHolder.iv.setColorFilter(Color.parseColor("#7f000000"));
@@ -86,7 +86,7 @@ public class GalleryAdapter extends BaseAdapter {
 
             }
         });
-        viewHolder.tv.setTextColor(mContext.getResources().getColor(R.color.xuese));
+        viewHolder.tv.setTextColor(mContext.getResources().getColor(android.R.color.white));
         CommonUtil.setFontAwesome(mContext, viewHolder.tv);
 
         if (mSelectedImgs.contains(filePath)) {

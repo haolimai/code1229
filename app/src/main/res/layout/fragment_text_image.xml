@@ -40,7 +40,6 @@
             android:paddingLeft="@dimen/_10dp"
             android:paddingRight="@dimen/_10dp"
             android:text="@string/fa_arrow_right"
-            android:textColor="@color/xuese"
             android:textSize="25sp" />
     </RelativeLayout>
 </RelativeLayout>

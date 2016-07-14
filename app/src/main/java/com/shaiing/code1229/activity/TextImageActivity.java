@@ -179,7 +179,7 @@ public class TextImageActivity extends AppCompatActivity implements ViewPager.On
         paint.setAntiAlias(true);
         paint.setDither(true);
         paint.setFakeBoldText(true);
-        paint.setColor(getResources().getColor(R.color.xuese));
+        paint.setColor(getResources().getColor(android.R.color.white));
         paint.setTextSize(tv_text.getTextSize());
 
         Rect textBounds = new Rect();

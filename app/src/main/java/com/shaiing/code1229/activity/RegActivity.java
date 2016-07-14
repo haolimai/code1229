@@ -202,7 +202,7 @@ public class RegActivity extends AppCompatActivity implements View.OnClickListen
 
                         @Override
                         protected void onPostExecute(Void aVoid) {
-                            btnContinue.setTextColor(getResources().getColor(R.color.xuese));
+                            btnContinue.setTextColor(getResources().getColor(android.R.color.white));
                             progressBar.setVisibility(View.GONE);
                         }
                     };

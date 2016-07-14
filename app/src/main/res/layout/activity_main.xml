@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
     <FrameLayout
@@ -10,10 +11,14 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/xuese" />-->
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/jiehuang"
+        android:layout_height="46dp"
         android:baselineAligned="false">
 
         <RelativeLayout
@@ -28,7 +33,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fa_home"
-                android:textColor="@color/xuese"
                 android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
@@ -45,7 +49,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fa_search"
-                android:textColor="@color/xuese"
                 android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
@@ -55,6 +58,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@android:color/white"
             android:gravity="center">
 
             <TextView
@@ -62,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fa_camera_retro"
-                android:textColor="@color/baicaoshuang"
+                android:textColor="@color/ningmenghuang"
                 android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
@@ -79,7 +83,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fa_comment"
-                android:textColor="@color/xuese"
                 android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>
@@ -96,7 +99,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fa_user"
-                android:textColor="@color/xuese"
                 android:textSize="@dimen/tv_ic_size" />
 
         </RelativeLayout>

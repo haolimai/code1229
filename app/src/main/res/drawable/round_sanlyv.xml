@@ -11,7 +11,7 @@
         android:right="2dp"
         android:top="2dp">
         <shape android:shape="oval">
-            <solid android:color="@color/xuese" />
+            <solid  />
         </shape>
     </item>
     <item

@@ -4,5 +4,5 @@
 
     <item
         android:bottom="1px"
-        android:drawable="@color/xuese" />
+         />
 </layer-list>

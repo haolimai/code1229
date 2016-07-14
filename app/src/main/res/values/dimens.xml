@@ -13,7 +13,8 @@
     <!--字体大小-->
     <dimen name="_16sp">16sp</dimen>
     <dimen name="_20sp">20sp</dimen>
-    <dimen name="tv_ic_size">25sp</dimen>
+    <dimen name="tv_ic_size">22sp</dimen>
     <dimen name="btn_font_size">80sp</dimen>
+    <dimen name="photo_space">2dp</dimen>
 
 </resources>

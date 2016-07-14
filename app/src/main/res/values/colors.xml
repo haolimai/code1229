@@ -4,9 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="qiantengzi">#c4c3cb</color>
-    <color name="xuese">#fffafa</color>
-    <color name="xs">#ccfffafa</color>
-    <color name="transparent">#00000000</color>
     <color name="ningmenghuang">#e9db39</color>
     <color name="sanlyv">#90caaf</color>
     <color name="tianqing">#2ec3e7</color>
@@ -26,5 +23,6 @@
     <color name="qianxieya">#eacdd1</color>
     <color name="rain">#449CB7</color>
     <color name="hailan">#17507d</color>
+    <color name="xuese">#fffafa</color>
 
 </resources>

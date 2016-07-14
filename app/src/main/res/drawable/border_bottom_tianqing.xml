@@ -3,5 +3,5 @@
     <item android:drawable="@color/tianqing" />
     <item
         android:bottom="1dp"
-        android:drawable="@color/xuese" />
+         />
 </layer-list>

@@ -2,15 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/xuese"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
         android:paddingTop="5dp">
 
         <ImageView
@@ -66,9 +65,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/like_border_bottom"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -125,8 +123,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -154,7 +152,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="14dp"
         android:text="全部15427次评论"
         android:textColor="@color/zhenghui" />
 
@@ -162,8 +160,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -184,8 +182,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -206,8 +204,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
 
         <TextView
             android:layout_width="wrap_content"

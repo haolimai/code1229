@@ -1,51 +1,64 @@
 package com.shaiing.code1229.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shaiing.code1229.adapter.MyPagerAdapter;
 import com.shaiing.code1229.R;
+import com.shaiing.code1229.view.ViewPagerIndicator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by natalie on 2016/1/6.
  */
 public class SearchFragment extends Fragment implements ViewPager.OnPageChangeListener {
-    private MyPagerAdapter adapter;
+    private FragmentPagerAdapter mFragmentPagerAdapter;
+    private List<String> mTitles = Arrays.asList("发现", "晒什么", "搜索");
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        List<String> titles = new ArrayList<>();
-        titles.add("晒什么");
-        titles.add("回复");
+        final List<Fragment> fragments = new ArrayList<>();
+        fragments.add(new FindFragment());
+        fragments.add(new ShareFragment());
+        fragments.add(new IndexFragment());
 
-        List<View> views = new ArrayList<>();
-        views.add(View.inflate(getActivity(), R.layout.view3, null));
-        views.add(View.inflate(getActivity(), R.layout.view4, null));
+        mFragmentPagerAdapter = new FragmentPagerAdapter(getChildFragmentManager()) {
+            @Override
+            public android.support.v4.app.Fragment getItem(int position) {
+                return fragments.get(position);
+            }
 
-        adapter = new MyPagerAdapter(views, titles);
+            @Override
+            public int getCount() {
+                return fragments.size();
+            }
+
+        };
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_shai_shai, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-        viewPager.setAdapter(adapter);
+        viewPager.setAdapter(mFragmentPagerAdapter);
         viewPager.addOnPageChangeListener(this);
 
-//        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-//        tabLayout.setupWithViewPager(viewPager);
+        ViewPagerIndicator viewPagerIndicator = (ViewPagerIndicator) view.findViewById(R.id.viewPagerIndicator);
+        viewPagerIndicator.setIndicatorItem(mTitles);
+        viewPagerIndicator.setViewPager(viewPager, 0);
 
         return view;
     }
