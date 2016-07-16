@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,27 +23,18 @@
                 android:paddingEnd="@dimen/_10dp"
                 android:paddingStart="@dimen/_10dp"
                 android:text="@string/fa_angle_left"
-                android:textColor="@color/tianqing"
-                android:textSize="@dimen/_20sp" />
+                android:textColor="@color/ningmenghuang"
+                android:textSize="22sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="注册"
-                android:textColor="@color/tianqing"
-                android:textSize="@dimen/_20sp"
+                android:textColor="@color/ningmenghuang"
+                android:textSize="22sp"
                 android:textStyle="bold" />
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/_10dp"
-            android:text="欢迎你注册晒应！"
-            android:textColor="@color/baicaoshuang"
-            android:textStyle="italic" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -113,9 +103,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:alpha="0"
-            android:background="@color/tianqing"
+            android:background="@color/ningmenghuang"
             android:text="继续"
-            android:textSize="@dimen/_20sp"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <ProgressBar

@@ -27,6 +27,7 @@ import java.util.List;
 public class ViewPagerIndicator extends LinearLayout {
     private int mUnderlineWidth;
     private float mUnderlineHeight;
+    private int mItemTextSize;
     private int mTranslationX;
 
     private Paint mPaint;
@@ -52,6 +53,7 @@ public class ViewPagerIndicator extends LinearLayout {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ViewPagerIndicator);
         mVisibleItemCount = ta.getInt(R.styleable.ViewPagerIndicator_visible_item_count, DEFAULT_COUNT);
         mUnderlineHeight = ta.getDimension(R.styleable.ViewPagerIndicator_underline_height, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, context.getResources().getDisplayMetrics()));
+        mItemTextSize = ta.getInt(R.styleable.ViewPagerIndicator_item_text_size, 14);
         ta.recycle();
 
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -150,7 +152,7 @@ public class ViewPagerIndicator extends LinearLayout {
         tv.setLayoutParams(lp);
         tv.setText(item);
         tv.setGravity(Gravity.CENTER);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, mItemTextSize);
         tv.setTextColor(TEXT_COLOR_NORMAL);
         return tv;
     }

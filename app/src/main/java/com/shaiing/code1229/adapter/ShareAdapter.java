@@ -41,8 +41,6 @@ public class ShareAdapter extends RecyclerView.Adapter<ShareAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        //holder.iv_photo.setImageResource(mData.get(position));
-
         holder.recyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
         holder.recyclerView.setAdapter(new FindAdapter(mContext, R.layout.item_photo_share, mData, 2));
     }

@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="我是一个很有自信的人"
-                android:textColor="@android:color/black"
+                android:textColor="@color/baicaoshuang"
                 android:textSize="12sp" />
 
             <LinearLayout
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="218"
-                android:textColor="@android:color/black"
+                android:textColor="@color/baicaoshuang"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2.2m"
-                android:textColor="@android:color/black"
+                android:textColor="@color/baicaoshuang"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -139,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="337"
-                android:textColor="@android:color/black"
+                android:textColor="@color/baicaoshuang"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

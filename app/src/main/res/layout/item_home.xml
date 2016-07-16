@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -24,33 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
             android:layout_toRightOf="@+id/iv_avatar"
             android:text="nickname"
-            android:textColor="@color/hailan" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true">
-
-            <TextView
-                android:id="@+id/tv_current_page"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/" />
-
-            <TextView
-                android:id="@+id/tv_total_pages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9" />
-        </LinearLayout>
+            android:textColor="@color/ningmenghuang" />
 
     </RelativeLayout>
 
@@ -58,15 +36,17 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone">
+        android:visibility="visible">
 
     </android.support.v4.view.ViewPager>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
         android:paddingLeft="14dp"
-        android:paddingRight="14dp">
+        android:paddingRight="14dp"
+        android:paddingTop="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -96,25 +76,27 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:orientation="vertical">
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_current_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/xiangsihui" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10254赞"
-                android:textColor="@color/xiangsihui"
-                android:textSize="12sp"
-                android:typeface="monospace" />
+                android:text="/"
+                android:textColor="@color/xiangsihui" />
 
             <TextView
+                android:id="@+id/tv_total_pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7254转发"
-                android:textColor="@color/xiangsihui"
-                android:textSize="12sp"
-                android:typeface="monospace" />
-
+                android:text="9"
+                android:textColor="@color/xiangsihui" />
         </LinearLayout>
 
     </RelativeLayout>
@@ -130,8 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="natalie portman"
-            android:textColor="@color/hailan"
-            android:textStyle="italic" />
+            android:textColor="@color/ningmenghuang" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -147,6 +128,27 @@
             android:text="2天前"
             android:textColor="@color/zhenghui"
             android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10254\u2000赞"
+            android:textColor="@color/baicaoshuang" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7254\u2000转发"
+            android:textColor="@color/baicaoshuang" />
+
     </LinearLayout>
 
     <TextView
@@ -167,8 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="margotrobbie"
-            android:textColor="@color/hailan"
-            android:textStyle="italic" />
+            android:textColor="@color/ningmenghuang" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -189,8 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我是一个很有自信的人"
-            android:textColor="@color/hailan"
-            android:textStyle="italic" />
+            android:textColor="@color/ningmenghuang" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -211,8 +211,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="mcmike"
-            android:textColor="@color/hailan"
-            android:textStyle="italic" />
+            android:textColor="@color/ningmenghuang" />
 
         <TextView
             android:layout_width="wrap_content"

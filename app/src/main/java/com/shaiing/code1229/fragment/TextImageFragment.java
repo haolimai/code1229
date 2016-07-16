@@ -23,7 +23,6 @@ public class TextImageFragment extends Fragment implements View.OnClickListener 
 
     private Context context;
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

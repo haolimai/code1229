@@ -6,7 +6,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
 
         <ImageView
             android:id="@+id/iv_avatar"
@@ -20,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
             android:layout_toRightOf="@+id/iv_avatar"
             android:text="nickname"
             android:textColor="@color/baicaoshuang" />

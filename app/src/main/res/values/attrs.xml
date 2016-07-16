@@ -3,5 +3,6 @@
     <declare-styleable name="ViewPagerIndicator">
         <attr name="underline_height" format="dimension" />
         <attr name="visible_item_count" format="integer" />
+        <attr name="item_text_size" format="integer" />
     </declare-styleable>
 </resources>

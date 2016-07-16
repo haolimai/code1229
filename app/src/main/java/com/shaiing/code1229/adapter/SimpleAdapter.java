@@ -3,23 +3,17 @@ package com.shaiing.code1229.adapter;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.shaiing.code1229.R;
 import com.shaiing.code1229.bean.HomePageBean;
-import com.shaiing.code1229.util.CommonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +42,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.MyViewHold
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.item1, parent, false);
+        View view = mInflater.inflate(R.layout.item_home, parent, false);
 
 //        TextView tv_heart_o = (TextView) view.findViewById(R.id.tv_heart_o);
 //        tv_heart_o.setOnClickListener(this);
